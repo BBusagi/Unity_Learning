@@ -15,3 +15,4 @@ XR Interaction
 + [Bugfix] XR hand no input action
 + [Bugfix] Rendering pipeline converter
 + add 'XR grab interactable'
++ Light Mode: Baked Indirect / Subtractive / Shadowmask
