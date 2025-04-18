@@ -167,7 +167,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.BBRabbit.SpaceShooter
-    Standalone: com.DefaultCompany.Project-SpaceShooter
+    Standalone: com.BBRabbit.SpaceShooter
   buildNumber:
     Standalone: 0
     VisionOS: 0
