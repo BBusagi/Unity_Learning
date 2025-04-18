@@ -10,6 +10,8 @@ XR Interaction
 + XRI - version 2.6.4
 
 ### Build Scene
-+ remove XRRayInteractor / LineRenderer / XR interactor Line Visual
-+ add XRDirectInteractor
-+ [BugFix] XR hand no input action
++ remove 'XRRayInteractor' / 'LineRenderer' / 'XR interactor Line Visual'
++ add 'XRDirectInteractor'
++ [Bugfix] XR hand no input action
++ [Bugfix] Rendering pipeline converter
++ add 'XR grab interactable'
