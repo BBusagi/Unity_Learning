@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c146daf0163687f47b4c34424b41c4be, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -96,8 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 702d8d3dd5762f646b56ac7d0386ad67, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 534eb867d39e5c3498b0dd90547393e8, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -200,9 +200,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 1961503458517140308, guid: 394a6fb029e057e429da551b7091f319, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009806359172409693, guid: 394a6fb029e057e429da551b7091f319, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009806360045287067, guid: 394a6fb029e057e429da551b7091f319, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2009806360176422846, guid: 394a6fb029e057e429da551b7091f319, type: 3}
       propertyPath: m_Name
       value: SolarPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009806360176422846, guid: 394a6fb029e057e429da551b7091f319, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2009806360176422847, guid: 394a6fb029e057e429da551b7091f319, type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,6 +260,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4350324950218643270, guid: 394a6fb029e057e429da551b7091f319, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549626348581794143, guid: 394a6fb029e057e429da551b7091f319, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -267,9 +291,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 400212265}
     m_Modifications:
+    - target: {fileID: 1636990973624710689, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2732646197719098716, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
       propertyPath: m_Name
       value: MoonBase_Terminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732646197719098716, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793109849410058342, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4891157962040346875, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -310,6 +346,14 @@ PrefabInstance:
     - target: {fileID: 4891157962040346875, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310689138976396796, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774931996524257818, guid: ca0c99d793887c245bbe0597159863a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -426,6 +470,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moonbase_OxygenTank
       objectReference: {fileID: 0}
+    - target: {fileID: 660108906547649092, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504735052165218147, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064951867865415417, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522067183378982778, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378966518132596768, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663686264958372014, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750451740547780279, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721145249003528940, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117221987606473480, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929111936264106228, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7950089288648808530, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.98
@@ -466,6 +550,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8364798675722990235, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -484,6 +572,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.598446
@@ -528,6 +620,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonBase_WaterTank (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -549,6 +649,26 @@ PrefabInstance:
     - target: {fileID: 3026937743359694985, guid: efe086015070f38468ea90fd0968a1b9, type: 3}
       propertyPath: m_Name
       value: MoonBase_Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026937743359694985, guid: efe086015070f38468ea90fd0968a1b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4013945175397083364, guid: efe086015070f38468ea90fd0968a1b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520946046772056355, guid: efe086015070f38468ea90fd0968a1b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369719827787893139, guid: efe086015070f38468ea90fd0968a1b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380339399977145688, guid: efe086015070f38468ea90fd0968a1b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9121549893462604010, guid: efe086015070f38468ea90fd0968a1b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -676,9 +796,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 131747140953552395, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 342963269786854969, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127530536494016814, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151135400920476035, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183515970544033308, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248294144041388417, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2526469824456459106, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
       propertyPath: m_Name
       value: MoonBaseSatelliteDish
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526469824456459106, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751591215733999204, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760152730977304273, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966246968724910500, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256408802689727948, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -720,6 +880,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4450728861513203138, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467187887082658704, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535891871295324113, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409205895378392078, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742224129692004226, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282025469464696036, guid: 71aead153a51edc4093e3b9556d6c10a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -738,6 +922,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.129997
@@ -782,6 +970,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonBase_WaterTank (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -804,7 +1000,7 @@ GameObject:
   - component: {fileID: 705507994}
   - component: {fileID: 705507996}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Directional Light_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +1017,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -880,13 +1076,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.15342255, y: -0.32894233, z: 0.26969773, w: 0.8919202}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.815, y: -34.385, z: 25.212}
 --- !u!114 &705507996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +1106,71 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &758294445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758294447}
+  - component: {fileID: 758294446}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!215 &758294446
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758294445}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 104.42258, y: 19.698744, z: 107.89995}
+  m_BoxOffset: {x: -3.9239044, y: 4.849372, z: -4.1687336}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
+--- !u!4 &758294447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758294445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761807703 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 122084618895949332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
@@ -1013,6 +1274,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 442266407444255728, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 468960286396028279, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 839585902146152923, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.6841545
@@ -1053,9 +1322,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2558274811375455915, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651639002816404170, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705390012130398955, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728610026399993788, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2837146844224610123, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
       propertyPath: m_Name
       value: MoonBase_Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837146844224610123, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2955666037876560435, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256562714714674540, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236469248899555532, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340499496693540184, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1067,6 +1372,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 839585902146152923, guid: f63c1669893e76f4ab51193148fcb534, type: 3}
   m_PrefabInstance: {fileID: 799592075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &850466345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 1895393892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &850466350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850466345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1001 &939213015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1075,6 +1429,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.958445
@@ -1119,6 +1477,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonBase_WaterTank (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1140,6 +1506,46 @@ PrefabInstance:
     - target: {fileID: 660108906547649092, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
       propertyPath: m_Name
       value: Moonbase_OxygenTank (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 660108906547649092, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504735052165218147, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064951867865415417, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522067183378982778, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378966518132596768, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663686264958372014, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750451740547780279, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721145249003528940, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117221987606473480, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929111936264106228, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7950089288648808530, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1181,6 +1587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8364798675722990235, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1199,6 +1609,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.598446
@@ -1243,6 +1657,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonBase_WaterTank (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1261,6 +1683,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 984419699057043379, guid: 0d791980aec33b549b12da08490ddfe5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1004157223688019717, guid: 0d791980aec33b549b12da08490ddfe5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.439999
@@ -1301,9 +1727,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4471872686962620500, guid: 0d791980aec33b549b12da08490ddfe5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803353440620209973, guid: 0d791980aec33b549b12da08490ddfe5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8511241220713900273, guid: 0d791980aec33b549b12da08490ddfe5, type: 3}
       propertyPath: m_Name
       value: Moonbase_Habitat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511241220713900273, guid: 0d791980aec33b549b12da08490ddfe5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1315,6 +1753,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1004157223688019717, guid: 0d791980aec33b549b12da08490ddfe5, type: 3}
   m_PrefabInstance: {fileID: 1077018035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1094786091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094786094}
+  - component: {fileID: 1094786093}
+  - component: {fileID: 1094786092}
+  m_Layer: 0
+  m_Name: Sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1094786092
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094786091}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 43a6cc364e429fb4aa75b5563dab64d6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1094786093
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094786091}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1094786094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094786091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1630303, y: 489, z: 1527}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1238720492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1323,6 +1844,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.958445
@@ -1366,6 +1891,14 @@ PrefabInstance:
     - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_Name
       value: MoonBase_WaterTank (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1926,6 +2459,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.129997
@@ -1970,6 +2507,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonBase_WaterTank (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1999,7 +2544,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1581413069
 Transform:
@@ -2014,6 +2559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1952807734}
   - {fileID: 290572593}
   - {fileID: 2019859490}
   - {fileID: 972478903}
@@ -2041,6 +2587,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.958445
@@ -2084,6 +2634,14 @@ PrefabInstance:
     - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_Name
       value: MoonBase_WaterTank (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2158,6 +2716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Interaction Setup
       objectReference: {fileID: 0}
+    - target: {fileID: 9014170783809206330, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9146015503685400394, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
     - {fileID: 6713470029137982152, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
@@ -2174,6 +2736,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1368508562}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 850466350}
     - targetCorrespondingSourceObject: {fileID: 122084618895949332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 761807705}
@@ -2181,6 +2746,96 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1343290654}
   m_SourcePrefab: {fileID: 100100000, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+--- !u!1001 &1952807733
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1581413069}
+    m_Modifications:
+    - target: {fileID: 3486927726873918073, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_Name
+      value: EarthModelForMoonBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486927726873918073, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 84.091
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 84.09101
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 84.091
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 158.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 167.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 600.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.34433815
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0015277915
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.92160386
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.17909579
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 19.339
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -137.774
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 7.338
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566049786188897290, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292558185711144286, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+--- !u!4 &1952807734 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6347622828065618312, guid: 58e797c674b988c4bbe40b7031ed7909, type: 3}
+  m_PrefabInstance: {fileID: 1952807733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2010243660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2189,6 +2844,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.598446
@@ -2233,6 +2892,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonBase_WaterTank (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2254,6 +2921,46 @@ PrefabInstance:
     - target: {fileID: 660108906547649092, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
       propertyPath: m_Name
       value: Moonbase_OxygenTank (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 660108906547649092, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504735052165218147, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064951867865415417, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522067183378982778, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378966518132596768, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663686264958372014, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750451740547780279, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721145249003528940, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117221987606473480, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929111936264106228, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7950089288648808530, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2295,6 +3002,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8364798675722990235, guid: 48760a921dd92ff488bb4572c0d21979, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2318,6 +3029,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1581413069}
     m_Modifications:
+    - target: {fileID: 2941983796613814739, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3458509541238560611, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.129997
@@ -2362,6 +3077,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonBase_WaterTank
       objectReference: {fileID: 0}
+    - target: {fileID: 6925186616976999776, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316625040641816790, guid: a83255fa05c7bc84abb5b39f52887ee8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2382,3 +3105,5 @@ SceneRoots:
   - {fileID: 1581413069}
   - {fileID: 1325932504}
   - {fileID: 1338655709}
+  - {fileID: 758294447}
+  - {fileID: 1094786094}
