@@ -21,7 +21,11 @@ XR Interaction
 ### Lighting
 + Light Mode: Baked Indirect / Subtractive / Shadowmask
 + Texel Validity (60)
-+ add 'relection probe'
++ add 'Reflection Probe'
 
 ### Camera
 + Clipping planes
+
+### GamePlay
++ livecycle - OnDrawGizmos
++ World.Space
