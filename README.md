@@ -18,6 +18,14 @@ XR Interaction
 + add 'XRDirectInteractor'
 + add 'XR grab interactable'
 
+### GamePlay
++ MonoSingleton<T>
++ livecycle - OnDrawGizmos
++ World.Space
+
+### UI
++ Anchor Presets - ctrl alt
+
 ### Lighting
 + Light Mode: Baked Indirect / Subtractive / Shadowmask
 + Texel Validity (60)
@@ -25,7 +33,3 @@ XR Interaction
 
 ### Camera
 + Clipping planes
-
-### GamePlay
-+ livecycle - OnDrawGizmos
-+ World.Space

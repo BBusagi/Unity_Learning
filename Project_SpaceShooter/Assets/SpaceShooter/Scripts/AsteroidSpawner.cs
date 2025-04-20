@@ -34,7 +34,7 @@ public class AsteroidSpawner : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if(spawnTimer > spawnRate)
         {
-            Debug.Log("[Deving] Spawning");
+            //Debug.Log("[Deving] Spawning");
             SpawnAsteroid();
             spawnTimer = 0;
         }
