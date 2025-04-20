@@ -20,7 +20,7 @@ public class GameController : MonoSingleton<GameController>
 
     void Start()
     {
-        Test();
+        
     }
 
 
