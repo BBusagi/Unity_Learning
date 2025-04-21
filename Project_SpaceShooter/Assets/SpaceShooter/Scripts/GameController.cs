@@ -13,13 +13,21 @@ public class GameController : MonoSingleton<GameController>
     [SerializeField] private float gameTime;
 
     private float sliderCurrentFillAmount = 1f;
+
+    [Header("Player Score Components")]
+    [SerializeField] private TextMeshProUGUI scoreText;
     private int playerScore;
 
-    [Header("Score Components")]
-    [SerializeField] private TextMeshProUGUI scoreText;
+    
+    [Header("High Score Components")]
+    [SerializeField] private TextMeshProUGUI highScoreText;
+    
+    private int highScore;
+
 
     [Header("GameOver Components")]
     [SerializeField] private GameObject GameOverScreen;
+
 
     public enum GameState
     {
@@ -45,6 +53,12 @@ public class GameController : MonoSingleton<GameController>
     protected void Awake()
     {
         _currentGameStatus = GameState.Waiting;
+
+        if(PlayerPrefs.HasKey("HighScore"))
+        {
+            highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+        }
+
     }
 
     void Start()
@@ -88,6 +102,12 @@ public class GameController : MonoSingleton<GameController>
         _currentGameStatus = GameState.GameOver;
 
         GameOverScreen.SetActive(true);
+
+        if(playerScore > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", playerScore);
+            highScoreText.text = playerScore.ToString();
+        }
     }
 
     public void ResetGame()

@@ -18,11 +18,14 @@ XR Interaction
 + add 'XRDirectInteractor'
 + add 'XR grab interactable'
 
-### GamePlay/ C#
+### C#
 + MonoSingleton<T>
++ C# interface
+
+### GamePlay/ C#
 + livecycle - OnDrawGizmos
 + World.Space
-+ C# interface
++ PlayerPrefs 
 
 ### UI
 + Anchor Presets - ctrl alt
