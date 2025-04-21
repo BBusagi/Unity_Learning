@@ -30,7 +30,10 @@ public class LaserGun : MonoBehaviour
             {
                 hit.transform.GetComponent<AsteroidHit>().AsteroidDestoryed();
             }
-            
+            else if(hit.transform.GetComponent<IRaycast>() != null)
+            {
+                hit.transform.GetComponent<IRaycast>().HitByRaycast();
+            }
         }
 
     }

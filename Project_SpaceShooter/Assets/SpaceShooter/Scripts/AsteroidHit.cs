@@ -12,6 +12,13 @@ public class AsteroidHit : MonoBehaviour
     {
         Instantiate(asteroidExplosion, transform.position, transform.rotation);
 
+        if (GameController.CurrentGameStatus == GameController.GameState.Playing)       CalculateScore(); 
+
+        Destroy(this.gameObject);
+    }
+
+    private void CalculateScore()
+    {
         float distanceFromPlayer = Vector3.Distance(transform.position, Vector3.zero);
         int asteroidScore = 10 * (int)distanceFromPlayer;
 
@@ -21,7 +28,5 @@ public class AsteroidHit : MonoBehaviour
         scorePopupGO.transform.localScale = transform.localScale * (distanceFromPlayer / 5);
 
         GameController.Instance.UpdateGameScore(asteroidScore);
-
-        Destroy(this.gameObject);
     }
 }
