@@ -28,6 +28,10 @@ public class GameController : MonoSingleton<GameController>
     [Header("GameOver Components")]
     [SerializeField] private GameObject GameOverScreen;
 
+    [Header("GamePlay Audio Components")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audioClips;
+
 
     public enum GameState
     {
@@ -95,6 +99,8 @@ public class GameController : MonoSingleton<GameController>
     public void StartGame()
     {
         _currentGameStatus = GameState.Playing;
+        
+        PlayGameAudio(audioClips[1], true);
     }
 
     public void GameOver()
@@ -108,6 +114,8 @@ public class GameController : MonoSingleton<GameController>
             PlayerPrefs.SetInt("HighScore", playerScore);
             highScoreText.text = playerScore.ToString();
         }
+
+        PlayGameAudio(audioClips[2]);
     }
 
     public void ResetGame()
@@ -118,7 +126,16 @@ public class GameController : MonoSingleton<GameController>
         timerImage.fillAmount = 1;
 
         playerScore = 0;
-        scoreText.text =  0.ToString();
+        scoreText.text = 0.ToString();
+
+        PlayGameAudio(audioClips[0], true);
+    }
+
+    private void PlayGameAudio(AudioClip clip, bool loop = false)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+        audioSource.loop = loop;
     }
 }
 
