@@ -35,5 +35,9 @@ XR Interaction
 + Texel Validity (60)
 + add 'Reflection Probe'
 
+### PostProcessing
++ PostProcessing
++ Add override - bloom, color adjustment
+
 ### Camera
 + Clipping planes

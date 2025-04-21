@@ -99,7 +99,7 @@ public class GameController : MonoSingleton<GameController>
     public void StartGame()
     {
         _currentGameStatus = GameState.Playing;
-        
+
         PlayGameAudio(audioClips[1], true);
     }
 
@@ -131,11 +131,11 @@ public class GameController : MonoSingleton<GameController>
         PlayGameAudio(audioClips[0], true);
     }
 
-    private void PlayGameAudio(AudioClip clip, bool loop = false)
+    private void PlayGameAudio(AudioClip clipYoPlay, bool shouldLoop = false)
     {
-        audioSource.clip = clip;
+        audioSource.clip = clipYoPlay;
         audioSource.Play();
-        audioSource.loop = loop;
+        audioSource.loop = shouldLoop;
     }
 }
 
