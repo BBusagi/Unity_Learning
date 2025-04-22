@@ -35,6 +35,9 @@ XR Interaction
 + Texel Validity (60)
 + add 'Reflection Probe'
 
+### Animation
++ Animator.SetTrigger
+
 ### PostProcessing
 + PostProcessing
 + Add override - bloom, color adjustment
