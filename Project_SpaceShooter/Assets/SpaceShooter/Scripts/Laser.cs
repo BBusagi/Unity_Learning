@@ -15,8 +15,8 @@ public class Laser : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         lr.positionCount = 2;
-        lr.startWidth = 0.0005f;
-        lr.endWidth = 0.0005f;
+        lr.startWidth = 0.001f;
+        lr.endWidth = 0.002f;
     }
 
     void Update()

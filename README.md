@@ -44,3 +44,13 @@ XR Interaction
 
 ### Camera
 + Clipping planes
+
+### 
++ Texture optimisation 
++ max texture size: max 1024
++ Maps - reduces texture size（256） if not much complex information
+    + Base Map 
+    + Metallic Map
+    + Normal Map
+    + Occlusion Map
++ Enable GPU instancing - render multiple identical objects in a single draw call
