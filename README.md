@@ -34,6 +34,7 @@ XR Interaction
 + Light Mode: Baked Indirect / Subtractive / Shadowmask
 + Texel Validity (60)
 + add 'Reflection Probe'
++ [Hard] light probe
 
 ### Animation
 + Animator.SetTrigger
@@ -45,7 +46,7 @@ XR Interaction
 ### Camera
 + Clipping planes
 
-### 
+### Performance Optimization
 + Texture optimisation 
 + Build - max texture size: max 1024
 + Maps - reduces texture size（256） if not much complex information
@@ -54,4 +55,4 @@ XR Interaction
     + Normal Map
     + Occlusion Map
 + Enable GPU instancing - render multiple identical objects in a single draw call
-+ Occulusion Culling
++ Occulusion Culling - bake

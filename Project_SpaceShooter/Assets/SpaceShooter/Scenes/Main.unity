@@ -317,6 +317,104 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2009806360176422847, guid: 394a6fb029e057e429da551b7091f319, type: 3}
   m_PrefabInstance: {fileID: 93984679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &118248896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 118248898}
+  - component: {fileID: 118248897}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &118248897
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118248896}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: -64.02914, y: 49.14207, z: 66.019066}
+  - {x: -0.089617014, y: 3.1775408, z: -2.702973}
+  - {x: -0.089617014, y: -1, z: 3.664552}
+  - {x: -0.089617014, y: -1, z: -2.702973}
+  - {x: -5.0305953, y: 3.1775408, z: -0.7029728}
+  - {x: -5.0305953, y: 3.1775408, z: -2.702973}
+  - {x: -5.0305953, y: -1, z: 3.664552}
+  - {x: -5.0305953, y: -1, z: -2.702973}
+  - {x: -64.02914, y: 49.14207, z: 66.019066}
+  - {x: -0.089617014, y: 3.1775408, z: -2.702973}
+  - {x: -0.089617014, y: -1, z: -2.702973}
+  - {x: 32.60804, y: 48.673656, z: 66.019066}
+  - {x: 5.2439933, y: 3.1775408, z: -2.702973}
+  - {x: 5.2439933, y: -1, z: 3.664552}
+  - {x: 5.2439933, y: -1, z: -2.702973}
+  - {x: 32.60804, y: 48.673656, z: 66.019066}
+  - {x: 5.2439933, y: 3.1775408, z: -2.702973}
+  - {x: 5.2439933, y: -1, z: -2.702973}
+  - {x: -0.089617014, y: 3.1775408, z: 0.023994327}
+  - {x: 0.34168068, y: -0.2725513, z: 0.5403569}
+  - {x: -5.0305953, y: -1, z: 0.023994327}
+  - {x: -0.089617014, y: 3.1775408, z: 0.023994327}
+  - {x: 5.2439933, y: 3.1775408, z: 0.023994327}
+  - {x: 5.2439933, y: -1, z: 0.023994327}
+  - {x: 5.2439933, y: 3.1775408, z: 0.023994327}
+  - {x: -0.089617014, y: 3.1775408, z: 66.019066}
+  - {x: -0.089617014, y: 3.1775408, z: 66.019066}
+  - {x: -3.883233, y: 3.1775408, z: 3.664552}
+  - {x: -3.883233, y: 3.1775408, z: 3.664552}
+  - {x: 5.2439933, y: 3.1775408, z: 3.664552}
+  - {x: 5.2439933, y: 3.1775408, z: 3.664552}
+  - {x: -0.089617014, y: 3.1775408, z: 3.664552}
+  - {x: -0.089617014, y: 3.1775408, z: 3.664552}
+  - {x: -27.121124, y: 24.114315, z: 62.208176}
+  - {x: -27.121124, y: 24.114315, z: 62.208176}
+  - {x: 20.021748, y: 26.232502, z: 58.056374}
+  - {x: 20.021748, y: 26.232502, z: 58.056374}
+  - {x: 1.8802422, y: 47.968933, z: 54.369827}
+  - {x: 1.8802422, y: 47.968933, z: 54.369827}
+  - {x: -0.34553397, y: -0.27692127, z: 0.512306}
+  - {x: -0.089617014, y: -0.30516577, z: 1.1596056}
+  - {x: -0.089617014, y: -0.30516577, z: 1.1596056}
+  - {x: -0.089617014, y: -1, z: 0.023994327}
+  - {x: -0.089617014, y: -1, z: 0.023994327}
+  - {x: -0.089617014, y: 0.373407, z: 0.023994327}
+  - {x: -0.089617014, y: 0.373407, z: 0.023994327}
+  - {x: -0.089617014, y: -0.30516577, z: 0.023994327}
+  - {x: -0.089617014, y: -0.30516577, z: 0.023994327}
+  - {x: -29.090977, y: 4.9505277, z: 28.412855}
+  - {x: -29.090977, y: 4.9505277, z: 28.412855}
+  - {x: 18.051891, y: 7.068715, z: 24.261065}
+  - {x: 18.051891, y: 7.068715, z: 24.261065}
+  - {x: -0.089617014, y: 3.1775408, z: 20.57452}
+  - {x: -0.089617014, y: 3.1775408, z: 20.57452}
+  - {x: 1.8802422, y: 22.341328, z: 54.369827}
+  - {x: 1.8802422, y: 22.341328, z: 54.369827}
+  m_Dering: 1
+--- !u!4 &118248898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118248896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &136660095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9014170783705847996, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
@@ -1606,7 +1704,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5427,3 +5525,4 @@ SceneRoots:
   - {fileID: 1325932504}
   - {fileID: 1338655709}
   - {fileID: 1302359337}
+  - {fileID: 118248898}
