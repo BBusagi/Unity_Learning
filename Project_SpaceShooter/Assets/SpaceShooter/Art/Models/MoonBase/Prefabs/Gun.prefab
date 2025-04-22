@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunMuzzle: {fileID: 4264141189508154902}
-  maxDistance: 3
+  maxDistance: 50
   hitLayers:
     serializedVersion: 2
     m_Bits: 0

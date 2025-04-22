@@ -14,7 +14,8 @@ public class AsteroidKillZone : MonoBehaviour
         //Debug.Log("OnTriggerEnter");
         if (other.gameObject.CompareTag("Asteroid"))
         {
-            Destroy(other.gameObject);
+            other.GetComponent<Animator>().SetTrigger("FadeOut");
+            Destroy(other.gameObject,3f);
         }
     }
 
