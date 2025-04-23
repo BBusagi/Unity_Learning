@@ -54,6 +54,10 @@ XR Interaction
 + PostProcessing
 + Add override - bloom, color adjustment
 
+### Particle
++ Emisson, Shape, Renderer
++ Shader
+
 ### Camera
 + Clipping planes
 
