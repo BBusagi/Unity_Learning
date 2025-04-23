@@ -30,11 +30,22 @@ XR Interaction
 ### UI
 + Anchor Presets - ctrl alt
 
-### Lighting
-+ Light Mode: Baked Indirect / Subtractive / Shadowmask
-+ Texel Validity (60)
-+ add 'Reflection Probe'
-+ [Hard] light probe
+### [TODO] Lighting
+[【Udemy】Lighting in Unity](https://www.udemy.com/course/lighting-in-unity-l/)  
+[【unity ebook】9 ways to optimize your game development](https://create.unity.com/nine-ways-to-optimize-game-development?utm_source=thirdparty&utm_medium=affiliate&utm_campaign=gaming_global_acquisition_2020-01-gmg-ebook2&utm_content=brackeys)
++ Light Modes
+    + Realtime
+    + Baked
+    + Mixed
++ Lighting Mode - Mixed
+    + Baked Indirect - 全部光线烘焙，动态物体只受间接光，不投影 
+    + Subtractive - 单光源静态烘焙 + 动态实时（更简化，低端设备推荐）
+        > 第一个启用的 Directional Light 为 Main Light。
+    + Shadowmask - 静态阴影烘焙，动态阴影实时（更真实）
++ LightMap resolution/Texel Validity (60)
++ Reflection Probe
++ Light probe - 存储间接（反射）光照信息，通常布置在光照环境变化较大（色彩，明暗）区域
+
 
 ### Animation
 + Animator.SetTrigger
