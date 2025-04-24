@@ -1,38 +1,53 @@
 # Unity_Learning
 
-XR Interaction
+## TODO
+[【unity ebook】9 ways to optimize your game development](https://create.unity.com/nine-ways-to-optimize-game-development?utm_source=thirdparty&utm_medium=affiliate&utm_campaign=gaming_global_acquisition_2020-01-gmg-ebook2&utm_content=brackeys)
+[【Udemy】Lighting in Unity](https://www.udemy.com/course/lighting-in-unity-l/)  
+
 
 ## Project_SpaceShooter
-[GoogleDrive]https://drive.google.com/drive/folders/1pmB-Sg2tDb274kEB_Wd_TdBK56f7biw6?usp=sharing
+[GoogleDrive](https://drive.google.com/drive/folders/1pmB-Sg2tDb274kEB_Wd_TdBK56f7biw6?usp=sharing)
 
-## DevLog
+### RoadMap
++ 第一阶段 基本教程
++ 第二阶段 交互模块更改
+    + 移动模块（快速移动 远程传送 视角重置 转身设置 跳跃）
+    + 菜单 设置按键 装备模式
+    + 射击模块（）瞄准线 自动锁定 交互射击
+    + 感知增强模块
+    + 全身显示模组
+    + 近战攻击模组
+    + 投掷物模块
+    + 击碎效果
+    + 敌方ai模块
+
+### DevLog
 + [Bugfix] XR hand no input action
 + [Bugfix] Rendering pipeline converter
 
-### Setup
+### Note
+#### Setup
 + XR Rig, XR interaction - default XRI
 + XRI - version 2.6.4
 
-### XRI
+#### XRI
 + remove 'XRRayInteractor' / 'LineRenderer' / 'XR interactor Line Visual'
 + add 'XRDirectInteractor'
 + add 'XR grab interactable'
 
-### C#
+#### C#
 + MonoSingleton<T>
 + C# interface
 
-### GamePlay/ C#
+#### GamePlay
 + livecycle - OnDrawGizmos
 + World.Space
 + PlayerPrefs 
 
-### UI
+#### UI
 + Anchor Presets - ctrl alt
 
-### [TODO] Lighting
-[【Udemy】Lighting in Unity](https://www.udemy.com/course/lighting-in-unity-l/)  
-[【unity ebook】9 ways to optimize your game development](https://create.unity.com/nine-ways-to-optimize-game-development?utm_source=thirdparty&utm_medium=affiliate&utm_campaign=gaming_global_acquisition_2020-01-gmg-ebook2&utm_content=brackeys)
+#### Lighting
 + Light Modes
     + Realtime
     + Baked
@@ -47,21 +62,21 @@ XR Interaction
 + Light probe - 存储间接（反射）光照信息，通常布置在光照环境变化较大（色彩，明暗）区域
 
 
-### Animation
+#### Animation
 + Animator.SetTrigger
 
-### PostProcessing
+#### PostProcessing
 + PostProcessing
 + Add override - bloom, color adjustment
 
-### Particle
+#### Particle System
 + Emisson, Shape, Renderer
 + Shader
 
-### Camera
+#### Camera
 + Clipping planes
 
-### Performance Optimization
+#### Performance Optimization
 + Texture optimisation 
 + Build - max texture size: max 1024
 + Maps - reduces texture size（256） if not much complex information
