@@ -10,7 +10,7 @@ public class ExcelReader
     public struct ExcelData
     {
         public string speaker;
-        public string contents;
+        public string content;
     }
 
     public static List<ExcelData> ReadExcel(string filePath)
@@ -27,7 +27,7 @@ public class ExcelReader
                     {
                         ExcelData data = new ExcelData();
                         data.speaker = reader.GetString(0);
-                        data.contents = reader.GetString(1);
+                        data.content = reader.GetString(1);
                         excelData.Add(data);
                     }
                 }
