@@ -5,7 +5,11 @@
 + 对话框背景的比率问题
 
 ## Note
++ 协程实现打字机效果
 + 比例问题
 + ExcelDataReader
 + 编码问题（中文GB2312 日文Shift-JIS）
+
+## ref
+[在线TTS](https://www.ttsonline.cn/)
 

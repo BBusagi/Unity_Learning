@@ -19,12 +19,14 @@ public class VNManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speakerContent;
     [SerializeField] private Image avatarImage;
     [SerializeField] private AudioSource vocalAudio;
+    [SerializeField] private Image backgroundImage;
+    [SerializeField] private AudioSource backgroundAudio;
 
 
     private string storyPath = Constants.STORY_PATH;
     private string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
     private List<ExcelReader.ExcelData> storyData;
-    private int currentLine = 0;
+    private int currentLine = Constants.DEFAULT_START_LINE;
 
 
 
@@ -77,14 +79,24 @@ public class VNManager : MonoBehaviour
         {
             avatarImage.gameObject.SetActive(false);
         }
-
         if (NotNullNorEmpty(data.vocalAudioFile))
         {
             PlayVocalAudio(data.vocalAudioFile);
         }
 
+        if (NotNullNorEmpty(data.backgroundImageFile))
+        {
+            UpdateBackgroundImage(data.backgroundImageFile);
+        }
+        if (NotNullNorEmpty(data.backgroundMusicFile))
+        {
+            PlayVBackgroundAudio(data.backgroundMusicFile);
+        }
+
         currentLine++;
     }
+
+
 
     private void UpdateAvatarImage(string imageFile)
     {
@@ -113,6 +125,37 @@ public class VNManager : MonoBehaviour
         else
         {
             Debug.LogError("Failed to load audio:" + audioFile);
+        }
+    }
+
+
+
+    private void UpdateBackgroundImage(string imageFile)
+    {
+        string imagePath = Constants.BACKGROUND_PATH + imageFile;
+        Sprite sprite = Resources.Load<Sprite>(imagePath);
+        if (sprite != null)
+        {
+            backgroundImage.sprite = sprite;
+        }
+        else
+        {
+            Debug.LogError("Failed to load image: " + imageFile);
+        }
+    }
+    private void PlayVBackgroundAudio(string audioFile)
+    {
+        string audioPath = Constants.BGM_PATH + audioFile;
+        AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
+        if (audioClip != null)
+        {
+            backgroundAudio.clip = audioClip;
+            backgroundAudio.Play();
+            backgroundAudio.loop = true;
+        }
+        else
+        {
+            Debug.LogError("Failed to load BGM:" + audioFile);
         }
     }
 
