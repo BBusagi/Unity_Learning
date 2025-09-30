@@ -7,14 +7,21 @@ using Unity.Loading;
 using UnityEngine;
 
 
-
+/// <summary>
+/// 视觉小说总体控制器
+/// </summary>
 public class VNManager : MonoBehaviour
 {
+    public TypeWriterEffect typeWriterEffect;
+
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private TextMeshProUGUI speakerContent;
+
     private string filePath = Constants.STORY_PATH;
     private List<ExcelReader.ExcelData> storyData;
     private int currentLine = 0;
+
+
 
     void Start()
     {
@@ -40,12 +47,17 @@ public class VNManager : MonoBehaviour
             return;
         }
 
-        var data = storyData[currentLine];
-
-        speakerName.text = data.speaker;
-        speakerContent.text = data.content;
-
-        currentLine++;
+        if (typeWriterEffect.IsTyping)
+        {
+            typeWriterEffect.completeTyping();
+        }
+        else
+        {
+            var data = storyData[currentLine];
+            speakerName.text = data.speaker;
+            typeWriterEffect.StartTyping(data.content);
+            currentLine++;
+        }
     }
 
     void Update()
