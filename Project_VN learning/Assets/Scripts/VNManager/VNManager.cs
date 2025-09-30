@@ -5,6 +5,7 @@ using ExcelDataReader;
 using TMPro;
 using Unity.Loading;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -16,8 +17,12 @@ public class VNManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private TextMeshProUGUI speakerContent;
+    [SerializeField] private Image avatarImage;
+    [SerializeField] private AudioSource vocalAudio;
 
-    private string filePath = Constants.STORY_PATH;
+
+    private string storyPath = Constants.STORY_PATH;
+    private string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
     private List<ExcelReader.ExcelData> storyData;
     private int currentLine = 0;
 
@@ -25,7 +30,7 @@ public class VNManager : MonoBehaviour
 
     void Start()
     {
-        LoadStoryFromFile(filePath);
+        LoadStoryFromFile(storyPath + defaultStoryFile);
         DisplayNextLine();
     }
 
@@ -53,12 +58,64 @@ public class VNManager : MonoBehaviour
         }
         else
         {
-            var data = storyData[currentLine];
-            speakerName.text = data.speaker;
-            typeWriterEffect.StartTyping(data.content);
-            currentLine++;
+            DisplayThisLine();
         }
     }
+
+    private void DisplayThisLine()
+    {
+        var data = storyData[currentLine];
+        speakerName.text = data.speaker;
+        typeWriterEffect.StartTyping(data.content);
+
+
+        if (NotNullNorEmpty(data.avatarImageFile))
+        {
+            UpdateAvatarImage(data.avatarImageFile);
+        }
+        else
+        {
+            avatarImage.gameObject.SetActive(false);
+        }
+
+        if (NotNullNorEmpty(data.vocalAudioFile))
+        {
+            PlayVocalAudio(data.vocalAudioFile);
+        }
+
+        currentLine++;
+    }
+
+    private void UpdateAvatarImage(string imageFile)
+    {
+        string imagePath = Constants.AVATAR_PATH + imageFile;
+        Sprite sprite = Resources.Load<Sprite>(imagePath);
+        if (sprite != null)
+        {
+            avatarImage.sprite = sprite;
+            avatarImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Failed to load image: " + imageFile);
+        }
+    }
+
+    private void PlayVocalAudio(string audioFile)
+    {
+        string audioPath = Constants.VOCAL_PATH + audioFile;
+        AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
+        if (audioClip != null)
+        {
+            vocalAudio.clip = audioClip;
+            vocalAudio.Play();
+        }
+        else
+        {
+            Debug.LogError("Failed to load audio:" + audioFile);
+        }
+    }
+
 
     void Update()
     {
@@ -67,5 +124,10 @@ public class VNManager : MonoBehaviour
         {
             DisplayNextLine();
         }
+    }
+
+    private bool NotNullNorEmpty(string str)
+    {
+        return !string.IsNullOrEmpty(str);
     }
 }
