@@ -6,10 +6,11 @@ using TMPro;
 using Unity.Loading;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 /// <summary>
-/// 视觉小说总体控制器
+/// 视觉小说总体控制�?
 /// </summary>
 public class VNManager : MonoBehaviour
 {
@@ -17,10 +18,12 @@ public class VNManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private TextMeshProUGUI speakerContent;
-    [SerializeField] private Image avatarImage;
+
     [SerializeField] private AudioSource vocalAudio;
-    [SerializeField] private Image backgroundImage;
     [SerializeField] private AudioSource backgroundAudio;
+
+    [SerializeField] private Image avatarImage;
+    [SerializeField] private Image backgroundImage;
     [SerializeField] private Image character1Image;
     [SerializeField] private Image character2Image;
 
@@ -34,8 +37,28 @@ public class VNManager : MonoBehaviour
 
     void Start()
     {
+        Initialize();
         LoadStoryFromFile(storyPath + defaultStoryFile);
         DisplayNextLine();
+    }
+
+    void Update()
+    {
+        // 用户输入 鼠标
+        if (Input.GetMouseButtonDown(0))
+        {
+            DisplayNextLine();
+        }
+    }
+
+
+
+    private void Initialize()
+    {
+        avatarImage.gameObject.SetActive(false);
+        backgroundImage.gameObject.SetActive(false);
+        character1Image.gameObject.SetActive(false);
+        character2Image.gameObject.SetActive(false);
     }
 
     private void LoadStoryFromFile(string path)
@@ -99,28 +122,47 @@ public class VNManager : MonoBehaviour
         // charaterAction
         if (NotNullNorEmpty(data.charater1Action))
         {
-            UpdateCharacterImage(data.charater1Action, data.charater1ImageFile, character1Image);
+            UpdateCharacterImage(data.charater1Action, data.charater1ImageFile, character1Image, data.CoordinateX1);
         }
         if (NotNullNorEmpty(data.charater2Action))
         {
-            UpdateCharacterImage(data.charater2Action, data.charater2ImageFile, character2Image);
+            UpdateCharacterImage(data.charater2Action, data.charater2ImageFile, character2Image, data.CoordinateX2);
         }
 
         currentLine++;
     }
 
-    private void UpdateCharacterImage(string action, string imageFile, Image characterImage)
+    private void UpdateCharacterImage(string action, string imageFile, Image characterImage, string x)
     {
-        if (action.StartsWith(Constants.charaterActionAppearAt))
+        if (action.StartsWith(Constants.charaterActionAppearAt)) //appearAt
         {
             string imagePath = Constants.CHARACTER_PATH + imageFile;
-            UpdateImage(imagePath, characterImage);
+            if (NotNullNorEmpty(x))
+            {
+                UpdateImage(imagePath, characterImage);
+                var newPosition = new Vector2(float.Parse(x), characterImage.rectTransform.anchoredPosition.y);
+                characterImage.rectTransform.anchoredPosition = newPosition;
+                characterImage.DOFade(1, Constants.DURATION_TIME).From(0);
+            }
+            else
+            {
+                Debug.LogError("Coordinate missing");
+            }
         }
-        else if (action.StartsWith(Constants.charaterActionMoveTo))
-        { }
-        else if (action == Constants.charaterActionDisappear)
+        else if (action.StartsWith(Constants.charaterActionMoveTo)) //moveTo
         {
-            characterImage.gameObject.SetActive(false); //TODO 添加动画消失效果
+            if (NotNullNorEmpty(x))
+            {
+                characterImage.rectTransform.DOAnchorPosX(float.Parse(x), Constants.DURATION_TIME);
+            }
+            else
+            {
+                Debug.LogError("Coordinate missing");
+            }
+        }
+        else if (action == Constants.charaterActionDisappear) //disappear
+        {
+            characterImage.DOFade(0f, Constants.DURATION_TIME).OnComplete(() => characterImage.gameObject.SetActive(false));
         }
     }
 
@@ -143,7 +185,7 @@ public class VNManager : MonoBehaviour
     }
     private void PlayVBackgroundAudio(string audioFile)
     {
-        string audioPath = Constants.BGM_PATH + audioFile;
+        string audioPath = Constants.MUSIC_PATH + audioFile;
         PlayAudio(audioPath, backgroundAudio, true);
     }
 
@@ -162,7 +204,7 @@ public class VNManager : MonoBehaviour
     }
 
     private void PlayAudio(string audioPath, AudioSource audioSource, bool isLoop = false)
-    { 
+    {
         AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
         if (audioClip != null)
         {
@@ -172,29 +214,15 @@ public class VNManager : MonoBehaviour
         }
         else
         {
-            if (audioSource == vocalAudio)
-            { 
-                Debug.LogError("Failed to load audio: " + audioPath);
-            }
-            else if (audioSource == backgroundAudio)
-            {
-                Debug.LogError("Failed to load BGM: " + audioPath);
-            }
+            Debug.LogError("Failed to load audio: " + audioPath);
         }
     }
 
 
-    void Update()
-    {
-        // 用户输入 鼠标
-        if (Input.GetMouseButtonDown(0))
-        {
-            DisplayNextLine();
-        }
-    }
 
     private bool NotNullNorEmpty(string str)
     {
         return !string.IsNullOrEmpty(str);
     }
 }
+

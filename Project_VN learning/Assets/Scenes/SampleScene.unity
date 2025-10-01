@@ -563,7 +563,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -803,7 +803,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1021271, g: 0.1614676, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -973,10 +973,10 @@ MonoBehaviour:
   typeWriterEffect: {fileID: 1649545147}
   speakerName: {fileID: 1922190217}
   speakerContent: {fileID: 144959569}
-  avatarImage: {fileID: 497713656}
   vocalAudio: {fileID: 1809218596}
-  backgroundImage: {fileID: 2074010809}
   backgroundAudio: {fileID: 389453214}
+  avatarImage: {fileID: 497713656}
+  backgroundImage: {fileID: 2074010809}
   character1Image: {fileID: 91143424}
   character2Image: {fileID: 1676327996}
 --- !u!4 &709071986
