@@ -18,6 +18,11 @@ public class ExcelReader
         public string vocalAudioFile;
         public string backgroundImageFile;
         public string backgroundMusicFile;
+        public string charater1Action;
+        public string charater1ImageFile;
+        public string charater2Action;
+        public string charater2ImageFile;
+
     }
 
     public static List<ExcelData> ReadExcel(string filePath)
@@ -39,6 +44,12 @@ public class ExcelReader
                         data.vocalAudioFile = reader.IsDBNull(3) ? string.Empty : reader.GetValue(3)?.ToString();
                         data.backgroundImageFile = reader.IsDBNull(4) ? string.Empty : reader.GetValue(4)?.ToString();
                         data.backgroundMusicFile = reader.IsDBNull(5) ? string.Empty : reader.GetValue(5)?.ToString();
+                        //data.CharaterNum
+                        data.charater1Action = reader.IsDBNull(6) ? string.Empty : reader.GetValue(6)?.ToString();
+                        data.charater1ImageFile = reader.IsDBNull(7) ? string.Empty : reader.GetValue(7)?.ToString();
+                        data.charater2Action = reader.IsDBNull(8) ? string.Empty : reader.GetValue(8)?.ToString();
+                        data.charater2ImageFile = reader.IsDBNull(9) ? string.Empty : reader.GetValue(9)?.ToString();
+
                         excelData.Add(data);
                     }
                 }

@@ -563,7 +563,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -977,6 +977,8 @@ MonoBehaviour:
   vocalAudio: {fileID: 1809218596}
   backgroundImage: {fileID: 2074010809}
   backgroundAudio: {fileID: 389453214}
+  character1Image: {fileID: 91143424}
+  character2Image: {fileID: 1676327996}
 --- !u!4 &709071986
 Transform:
   m_ObjectHideFlags: 0

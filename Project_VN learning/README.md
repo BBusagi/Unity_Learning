@@ -5,6 +5,8 @@
 + 对话框背景的比率问题
 
 ## Note
++ DOTween实现动画效果
++ span，regex, substring, split
 + 协程实现打字机效果
 + 比例问题
 + ExcelDataReader

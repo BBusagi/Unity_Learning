@@ -21,6 +21,8 @@ public class VNManager : MonoBehaviour
     [SerializeField] private AudioSource vocalAudio;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private AudioSource backgroundAudio;
+    [SerializeField] private Image character1Image;
+    [SerializeField] private Image character2Image;
 
 
     private string storyPath = Constants.STORY_PATH;
@@ -70,7 +72,7 @@ public class VNManager : MonoBehaviour
         speakerName.text = data.speaker;
         typeWriterEffect.StartTyping(data.content);
 
-
+        //dialogue
         if (NotNullNorEmpty(data.avatarImageFile))
         {
             UpdateAvatarImage(data.avatarImageFile);
@@ -84,6 +86,7 @@ public class VNManager : MonoBehaviour
             PlayVocalAudio(data.vocalAudioFile);
         }
 
+        //background
         if (NotNullNorEmpty(data.backgroundImageFile))
         {
             UpdateBackgroundImage(data.backgroundImageFile);
@@ -93,69 +96,90 @@ public class VNManager : MonoBehaviour
             PlayVBackgroundAudio(data.backgroundMusicFile);
         }
 
+        // charaterAction
+        if (NotNullNorEmpty(data.charater1Action))
+        {
+            UpdateCharacterImage(data.charater1Action, data.charater1ImageFile, character1Image);
+        }
+        if (NotNullNorEmpty(data.charater2Action))
+        {
+            UpdateCharacterImage(data.charater2Action, data.charater2ImageFile, character2Image);
+        }
+
         currentLine++;
     }
 
-
+    private void UpdateCharacterImage(string action, string imageFile, Image characterImage)
+    {
+        if (action.StartsWith(Constants.charaterActionAppearAt))
+        {
+            string imagePath = Constants.CHARACTER_PATH + imageFile;
+            UpdateImage(imagePath, characterImage);
+        }
+        else if (action.StartsWith(Constants.charaterActionMoveTo))
+        { }
+        else if (action == Constants.charaterActionDisappear)
+        {
+            characterImage.gameObject.SetActive(false); //TODO 添加动画消失效果
+        }
+    }
 
     private void UpdateAvatarImage(string imageFile)
     {
-        string imagePath = Constants.AVATAR_PATH + imageFile;
-        Sprite sprite = Resources.Load<Sprite>(imagePath);
-        if (sprite != null)
-        {
-            avatarImage.sprite = sprite;
-            avatarImage.gameObject.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("Failed to load image: " + imageFile);
-        }
+        var imagePath = Constants.AVATAR_PATH + imageFile;
+        UpdateImage(imagePath, avatarImage);
     }
 
     private void PlayVocalAudio(string audioFile)
     {
         string audioPath = Constants.VOCAL_PATH + audioFile;
-        AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
-        if (audioClip != null)
-        {
-            vocalAudio.clip = audioClip;
-            vocalAudio.Play();
-        }
-        else
-        {
-            Debug.LogError("Failed to load audio:" + audioFile);
-        }
+        PlayAudio(audioPath, vocalAudio);
     }
-
-
 
     private void UpdateBackgroundImage(string imageFile)
     {
         string imagePath = Constants.BACKGROUND_PATH + imageFile;
-        Sprite sprite = Resources.Load<Sprite>(imagePath);
-        if (sprite != null)
-        {
-            backgroundImage.sprite = sprite;
-        }
-        else
-        {
-            Debug.LogError("Failed to load image: " + imageFile);
-        }
+        UpdateImage(imagePath, backgroundImage);
     }
     private void PlayVBackgroundAudio(string audioFile)
     {
         string audioPath = Constants.BGM_PATH + audioFile;
+        PlayAudio(audioPath, backgroundAudio, true);
+    }
+
+    private void UpdateImage(string imagePath, Image image)
+    {
+        Sprite sprite = Resources.Load<Sprite>(imagePath);
+        if (sprite != null)
+        {
+            image.sprite = sprite;
+            image.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Failed to load image: " + imagePath);
+        }
+    }
+
+    private void PlayAudio(string audioPath, AudioSource audioSource, bool isLoop = false)
+    { 
         AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
         if (audioClip != null)
         {
             backgroundAudio.clip = audioClip;
             backgroundAudio.Play();
-            backgroundAudio.loop = true;
+            backgroundAudio.loop = isLoop;
         }
         else
         {
-            Debug.LogError("Failed to load BGM:" + audioFile);
+            if (audioSource == vocalAudio)
+            { 
+                Debug.LogError("Failed to load audio: " + audioPath);
+            }
+            else if (audioSource == backgroundAudio)
+            {
+                Debug.LogError("Failed to load BGM: " + audioPath);
+            }
         }
     }
 
