@@ -7,6 +7,7 @@ using Unity.Loading;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Unity.Burst.CompilerServices;
 
 
 /// <summary>
@@ -27,9 +28,14 @@ public class VNManager : MonoBehaviour
     [SerializeField] private Image character1Image;
     [SerializeField] private Image character2Image;
 
+    [SerializeField] private GameObject choicePanel;
+    [SerializeField] private Button choiceButton1;
+    [SerializeField] private Button choiceButton2;
+
 
     private string storyPath = Constants.STORY_PATH;
     private string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
+    private string excelExtension = Constants.EXCEL_FILE_EXTENSION;
     private List<ExcelReader.ExcelData> storyData;
     private int currentLine = Constants.DEFAULT_START_LINE;
 
@@ -37,9 +43,35 @@ public class VNManager : MonoBehaviour
 
     void Start()
     {
+        InitializeAndLoadStory(defaultStoryFile);
+    }
+
+    private void InitializeAndLoadStory(string fileName)
+    {
         Initialize();
-        LoadStoryFromFile(storyPath + defaultStoryFile);
+        LoadStoryFromFile(fileName);
         DisplayNextLine();
+    }
+
+    private void Initialize()
+    {
+        currentLine = Constants.DEFAULT_START_LINE;
+        avatarImage.gameObject.SetActive(false);
+        backgroundImage.gameObject.SetActive(false);
+        character1Image.gameObject.SetActive(false);
+        character2Image.gameObject.SetActive(false);
+        choicePanel.SetActive(false);
+    }
+
+    private void LoadStoryFromFile(string fileName)
+    {
+        Debug.Log("[Debug] Start to read file: " + fileName);
+        var path = storyPath + fileName + excelExtension;
+        storyData = ExcelReader.ReadExcel(path);
+        if (storyData == null || storyData.Count == 0)
+        {
+            Debug.LogError("No data found in file");
+        }
     }
 
     void Update()
@@ -51,32 +83,23 @@ public class VNManager : MonoBehaviour
         }
     }
 
-
-
-    private void Initialize()
-    {
-        avatarImage.gameObject.SetActive(false);
-        backgroundImage.gameObject.SetActive(false);
-        character1Image.gameObject.SetActive(false);
-        character2Image.gameObject.SetActive(false);
-    }
-
-    private void LoadStoryFromFile(string path)
-    {
-        Debug.Log("[Debug] Start to read file: " + path);
-        storyData = ExcelReader.ReadExcel(path);
-        if (storyData == null || storyData.Count == 0)
-        {
-            Debug.LogError("No data found in file");
-        }
-    }
-
     private void DisplayNextLine()
     {
-        if (currentLine >= storyData.Count)
+        if (currentLine == storyData.Count - 1)
         {
-            Debug.Log("[Debug] End of story");
-            return;
+            if (storyData[currentLine].speakerName == Constants.STORYCONTROL_End)
+            {
+                Debug.Log("[Debug] End of story");
+                return;
+            }
+
+            if (storyData[currentLine].speakerName == Constants.STORYCONTROL_CHOICE)
+            {
+                ShowChoice();
+                return;
+            }
+
+
         }
 
         if (typeWriterEffect.IsTyping)
@@ -88,11 +111,24 @@ public class VNManager : MonoBehaviour
             DisplayThisLine();
         }
     }
+    private void ShowChoice()
+    {
+        choiceButton1.onClick.RemoveAllListeners();
+        choiceButton2.onClick.RemoveAllListeners();
+        choicePanel.SetActive(true);
+
+
+        var data = storyData[currentLine];
+        choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = data.content; //第二列
+        choiceButton1.onClick.AddListener(() => InitializeAndLoadStory(data.avatarImageFile)); //第三列
+        choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = data.vocalAudioFile; //第四列
+        choiceButton2.onClick.AddListener(() => InitializeAndLoadStory(data.backgroundImageFile)); //第五列
+    }
 
     private void DisplayThisLine()
     {
         var data = storyData[currentLine];
-        speakerName.text = data.speaker;
+        speakerName.text = data.speakerName;
         typeWriterEffect.StartTyping(data.content);
 
         //dialogue
@@ -122,11 +158,11 @@ public class VNManager : MonoBehaviour
         // charaterAction
         if (NotNullNorEmpty(data.charater1Action))
         {
-            UpdateCharacterImage(data.charater1Action, data.charater1ImageFile, character1Image, data.CoordinateX1);
+            UpdateCharacterImage(data.charater1Action, data.charater1ImageFile, character1Image, data.coordinateX1);
         }
         if (NotNullNorEmpty(data.charater2Action))
         {
-            UpdateCharacterImage(data.charater2Action, data.charater2ImageFile, character2Image, data.CoordinateX2);
+            UpdateCharacterImage(data.charater2Action, data.charater2ImageFile, character2Image, data.coordinateX2);
         }
 
         currentLine++;

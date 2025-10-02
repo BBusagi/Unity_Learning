@@ -12,17 +12,17 @@ public class ExcelReader
 {
     public struct ExcelData
     {
-        public string speaker;
+        public string speakerName;
         public string content;
         public string avatarImageFile;
         public string vocalAudioFile;
         public string backgroundImageFile;
         public string backgroundMusicFile;
         public string charater1Action;
-        public string CoordinateX1;
+        public string coordinateX1;
         public string charater1ImageFile;
         public string charater2Action;
-        public string CoordinateX2;
+        public string coordinateX2;
         public string charater2ImageFile;
     }
 
@@ -39,7 +39,7 @@ public class ExcelReader
                     while (reader.Read())
                     {
                         ExcelData data = new ExcelData();
-                        data.speaker = reader.IsDBNull(0) ? string.Empty : reader.GetValue(0)?.ToString();
+                        data.speakerName = reader.IsDBNull(0) ? string.Empty : reader.GetValue(0)?.ToString();
                         data.content = reader.IsDBNull(1) ? string.Empty : reader.GetValue(1)?.ToString();
                         data.avatarImageFile = reader.IsDBNull(2) ? string.Empty : reader.GetValue(2)?.ToString();
                         data.vocalAudioFile = reader.IsDBNull(3) ? string.Empty : reader.GetValue(3)?.ToString();
@@ -47,10 +47,10 @@ public class ExcelReader
                         data.backgroundMusicFile = reader.IsDBNull(5) ? string.Empty : reader.GetValue(5)?.ToString();
                         //data.CharaterNum
                         data.charater1Action = reader.IsDBNull(6) ? string.Empty : reader.GetValue(6)?.ToString();
-                        data.CoordinateX1 = reader.IsDBNull(7) ? string.Empty : reader.GetValue(7)?.ToString();
+                        data.coordinateX1 = reader.IsDBNull(7) ? string.Empty : reader.GetValue(7)?.ToString();
                         data.charater1ImageFile = reader.IsDBNull(8) ? string.Empty : reader.GetValue(8)?.ToString();
                         data.charater2Action = reader.IsDBNull(9) ? string.Empty : reader.GetValue(9)?.ToString();
-                        data.CoordinateX2 = reader.IsDBNull(10) ? string.Empty : reader.GetValue(10)?.ToString();
+                        data.coordinateX2 = reader.IsDBNull(10) ? string.Empty : reader.GetValue(10)?.ToString();
                         data.charater2ImageFile = reader.IsDBNull(11) ? string.Empty : reader.GetValue(11)?.ToString();
 
                         excelData.Add(data);
