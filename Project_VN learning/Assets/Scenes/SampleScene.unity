@@ -647,6 +647,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &395010768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8438044762697319931, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
+  m_PrefabInstance: {fileID: 922167068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &443523668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,21 +1079,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4073855105186624239, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073855105186624239, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6156c0dbe229cdd49a9acc21526149dc, type: 3}
     - target: {fileID: 5083612625368124576, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
       propertyPath: m_Name
       value: Button_Skip (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3926580980404883635, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
@@ -1261,21 +1263,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4073855105186624239, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073855105186624239, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6156c0dbe229cdd49a9acc21526149dc, type: 3}
     - target: {fileID: 5083612625368124576, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
       propertyPath: m_Name
       value: Button_Skip (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3926580980404883635, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
@@ -1327,6 +1320,7 @@ MonoBehaviour:
   choiceButton2: {fileID: 787454967}
   buttonButton: {fileID: 1370009513}
   autoButton: {fileID: 1744218065}
+  skipButton: {fileID: 395010768}
 --- !u!4 &709071986
 Transform:
   m_ObjectHideFlags: 0
@@ -2695,21 +2689,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4073855105186624239, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073855105186624239, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6156c0dbe229cdd49a9acc21526149dc, type: 3}
     - target: {fileID: 5083612625368124576, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
       propertyPath: m_Name
       value: Button_Skip (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3926580980404883635, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}

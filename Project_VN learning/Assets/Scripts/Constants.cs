@@ -4,7 +4,11 @@
 public class Constants
 {
     public static float DEFAULT_WAITING_SECONDS = 1.5f;
-    public static float TYPEWRITER_WAITING_SECONDS = 0.05f;    //打字机效果单字等待时间
+
+    //打字机效果单字等待时间
+    public static float DEFAULT_TYPING_SPEED = 0.05f;
+    public static float FAST_TYPING_SPEED = 0.01f;
+
     public static int DURATION_TIME = 1;    //动画持续时间
     public static int DEFAULT_START_LINE = 1;
 
@@ -26,6 +30,11 @@ public class Constants
     public static string STORYCONTROL_CHOICE = "CHOICE";
 
     //TODO: 将icon的配置单独设置
-    public static string AUTO_ON = "play_2";
+    public static string AUTO_ON = "play_1b";
     public static string AUTO_OFF = "play_1";
+    public static float AUTO_WAITING_SECONDS = 1.5f;
+
+    public static string SKIP_ON = "arrow_black";
+    public static string SKIP_OFF = "arrow_2";
+    public static float SKIP_WAITING_SECONDS = 0.02f;
 }

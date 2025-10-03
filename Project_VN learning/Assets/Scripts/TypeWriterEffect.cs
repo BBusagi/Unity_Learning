@@ -10,7 +10,13 @@ public class TypeWriterEffect : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textDisplay;
 
-    //private float waitingSeconds = Constants.DEFAULT_WAITING_SECONDS;
+    private float typingSpeed = Constants.DEFAULT_TYPING_SPEED;
+
+    public float TypingSpeed
+    {
+        get { return typingSpeed; }
+        set { typingSpeed = value; }
+    }
 
     private Coroutine typingCorouting;
 
@@ -39,7 +45,7 @@ public class TypeWriterEffect : MonoBehaviour
         foreach (char _ in text)
         {
             textDisplay.maxVisibleCharacters++;
-            yield return new WaitForSeconds(Constants.TYPEWRITER_WAITING_SECONDS);
+            yield return new WaitForSeconds(typingSpeed);
         }
         // for (int i = 0; i <= text.Length; i++)
         // {

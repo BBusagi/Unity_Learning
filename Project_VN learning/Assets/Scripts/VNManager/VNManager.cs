@@ -9,10 +9,11 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 
 
 /// <summary>
-/// 视觉小说总体控制�?
+/// 视觉小说总体控制
 /// </summary>
 public class VNManager : MonoBehaviour
 {
@@ -36,20 +37,66 @@ public class VNManager : MonoBehaviour
     // button panel
     [SerializeField] private GameObject buttonButton;
     [SerializeField] private Button autoButton;
+    [SerializeField] private Button skipButton;
 
     private readonly string storyPath = Constants.STORY_PATH;
     private readonly string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
     private readonly string excelExtension = Constants.EXCEL_FILE_EXTENSION;
     private List<ExcelReader.ExcelData> storyData;
-    private int currentLine = Constants.DEFAULT_START_LINE;
+    private int currentLine;
+    private string currentStoryFile;
 
     private bool isAutoPlay = false;
+    private bool isSkip = false;
+    private int maxRearchedLine = 0;
+    private Dictionary<string, int> globalMaxRearchedLineDic = new Dictionary<string, int>();
+
 
 
 
     void Start()
     {
+        ButtonAddListener();
         InitializeAndLoadStory(defaultStoryFile);
+    }
+
+    private void ButtonAddListener()
+    {
+        autoButton.onClick.AddListener(OnAutoButtonClick);
+        skipButton.onClick.AddListener(OnSkipButtonClick);
+    }
+
+    private void OnSkipButtonClick()
+    {
+        if (!isSkip && CanSkip())
+        {
+            StartSkip();
+        }
+        else if (isSkip)
+        {
+            StopCoroutine(SkipToMaxReachedLine());
+            EndSkip();
+        }
+    }
+
+    private void EndSkip()
+    {
+        isSkip = false;
+        typeWriterEffect.TypingSpeed = Constants.DEFAULT_TYPING_SPEED;
+        UpdateButtonImage(Constants.SKIP_OFF, skipButton);
+    }
+
+    private void StartSkip()
+    {
+        isSkip = true;
+        UpdateButtonImage(Constants.SKIP_ON, skipButton);
+        typeWriterEffect.TypingSpeed = Constants.FAST_TYPING_SPEED;
+        StartCoroutine(SkipToMaxReachedLine());
+    }
+
+    private bool CanSkip()
+    {
+        return currentLine < maxRearchedLine;
     }
 
     void Update()
@@ -57,7 +104,7 @@ public class VNManager : MonoBehaviour
         // 用户输入 鼠标
         if (Input.GetMouseButtonDown(0))
         {
-            if(!IsHittingButtons()) DisplayNextLine();
+            if (!IsHittingButtons()) DisplayNextLine();
         }
     }
 
@@ -76,17 +123,25 @@ public class VNManager : MonoBehaviour
         character1Image.gameObject.SetActive(false);
         character2Image.gameObject.SetActive(false);
         choicePanel.SetActive(false);
-        autoButton.onClick.AddListener(OnAutoButtonClick);
     }
 
     private void LoadStoryFromFile(string fileName)
     {
         Debug.Log("[Debug] Start to read file: " + fileName);
+
+        currentStoryFile = fileName;
         var path = storyPath + fileName + excelExtension;
         storyData = ExcelReader.ReadExcel(path);
-        if (storyData == null || storyData.Count == 0)
+        if (storyData == null || storyData.Count == 0) Debug.LogError("No data found in file");
+
+        if (globalMaxRearchedLineDic.ContainsKey(currentStoryFile))
         {
-            Debug.LogError("No data found in file");
+            maxRearchedLine = globalMaxRearchedLineDic[currentStoryFile];
+        }
+        else
+        {
+            maxRearchedLine = 0;
+            globalMaxRearchedLineDic[currentStoryFile] = maxRearchedLine;
         }
     }
 
@@ -94,21 +149,27 @@ public class VNManager : MonoBehaviour
 
     private void DisplayNextLine()
     {
-        if (currentLine == storyData.Count - 1)
+        if (currentLine > maxRearchedLine)
         {
+            maxRearchedLine = currentLine;
+            globalMaxRearchedLineDic[currentStoryFile] = maxRearchedLine;
+        }
+        if (currentLine >= storyData.Count - 1)
+        {
+            if (isAutoPlay)
+            {
+                isAutoPlay = false;
+                UpdateButtonImage(Constants.AUTO_OFF, autoButton);
+            }
             if (storyData[currentLine].speakerName == Constants.STORYCONTROL_End)
             {
                 Debug.Log("[Debug] End of story");
-                return;
             }
-
             if (storyData[currentLine].speakerName == Constants.STORYCONTROL_CHOICE)
             {
                 ShowChoice();
-                return;
             }
-
-
+            return;
         }
 
         if (typeWriterEffect.IsTyping)
@@ -286,8 +347,24 @@ public class VNManager : MonoBehaviour
         while (isAutoPlay)
         {
             if (!typeWriterEffect.IsTyping) DisplayNextLine();
-            
-            yield return new WaitForSeconds(Constants.DEFAULT_WAITING_SECONDS);
+
+            yield return new WaitForSeconds(Constants.AUTO_WAITING_SECONDS);
+        }
+    }
+
+    private IEnumerator SkipToMaxReachedLine()
+    {
+        while (isSkip)
+        {
+            if (CanSkip())
+            {
+                DisplayThisLine();
+            }
+            else
+            {
+                EndSkip();
+            }
+            yield return new WaitForSeconds(Constants.SKIP_WAITING_SECONDS);
         }
     }
 
