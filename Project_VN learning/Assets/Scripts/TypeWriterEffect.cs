@@ -39,7 +39,7 @@ public class TypeWriterEffect : MonoBehaviour
         foreach (char _ in text)
         {
             textDisplay.maxVisibleCharacters++;
-            yield return new WaitForSeconds(Constants.DEFAULT_WAITING_SECONDS);
+            yield return new WaitForSeconds(Constants.TYPEWRITER_WAITING_SECONDS);
         }
         // for (int i = 0; i <= text.Length; i++)
         // {

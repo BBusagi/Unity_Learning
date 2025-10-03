@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 
 
 /// <summary>
@@ -32,18 +33,32 @@ public class VNManager : MonoBehaviour
     [SerializeField] private Button choiceButton1;
     [SerializeField] private Button choiceButton2;
 
+    // button panel
+    [SerializeField] private GameObject buttonButton;
+    [SerializeField] private Button autoButton;
 
-    private string storyPath = Constants.STORY_PATH;
-    private string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
-    private string excelExtension = Constants.EXCEL_FILE_EXTENSION;
+    private readonly string storyPath = Constants.STORY_PATH;
+    private readonly string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
+    private readonly string excelExtension = Constants.EXCEL_FILE_EXTENSION;
     private List<ExcelReader.ExcelData> storyData;
     private int currentLine = Constants.DEFAULT_START_LINE;
+
+    private bool isAutoPlay = false;
 
 
 
     void Start()
     {
         InitializeAndLoadStory(defaultStoryFile);
+    }
+
+    void Update()
+    {
+        // 用户输入 鼠标
+        if (Input.GetMouseButtonDown(0))
+        {
+            if(!IsHittingButtons()) DisplayNextLine();
+        }
     }
 
     private void InitializeAndLoadStory(string fileName)
@@ -61,6 +76,7 @@ public class VNManager : MonoBehaviour
         character1Image.gameObject.SetActive(false);
         character2Image.gameObject.SetActive(false);
         choicePanel.SetActive(false);
+        autoButton.onClick.AddListener(OnAutoButtonClick);
     }
 
     private void LoadStoryFromFile(string fileName)
@@ -74,14 +90,7 @@ public class VNManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        // 用户输入 鼠标
-        if (Input.GetMouseButtonDown(0))
-        {
-            DisplayNextLine();
-        }
-    }
+
 
     private void DisplayNextLine()
     {
@@ -254,11 +263,52 @@ public class VNManager : MonoBehaviour
         }
     }
 
+    private void OnAutoButtonClick()
+    {
+        isAutoPlay = !isAutoPlay;
+        Debug.Log("[Debug] OnAutoButtonClick" + isAutoPlay);
 
+        UpdateButtonImage((isAutoPlay ? Constants.AUTO_ON : Constants.AUTO_OFF), autoButton);
+        if (isAutoPlay)
+        {
+            StartCoroutine(StartAutoPlay());
+        }
+    }
+
+    private void UpdateButtonImage(string imageFile, Button button)
+    {
+        string imagePath = Constants.BUTTON_PATH + imageFile;
+        UpdateImage(imagePath, button.image);
+    }
+
+    private IEnumerator StartAutoPlay()
+    {
+        while (isAutoPlay)
+        {
+            if (!typeWriterEffect.IsTyping) DisplayNextLine();
+            
+            yield return new WaitForSeconds(Constants.DEFAULT_WAITING_SECONDS);
+        }
+    }
+
+
+    #region Utility
+
+    private bool IsHittingButtons()
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(
+            buttonButton.GetComponent<RectTransform>(),
+            Input.mousePosition,
+            null
+        );
+    }
 
     private bool NotNullNorEmpty(string str)
     {
         return !string.IsNullOrEmpty(str);
     }
+
+    #endregion
+
 }
 
