@@ -5,6 +5,10 @@
 + 对话框背景的比率问题
 
 ## Note
++ grid layout组件 用于排列UI
++ image vs rawimage
+    + Image → UI专用，主要用于Sprite
+    + RawImage → 通用贴图显示，非Sprite
 + DOTween实现动画效果
 + span，regex, substring, split
 + 协程实现打字机效果
