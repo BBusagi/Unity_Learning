@@ -37,4 +37,15 @@ public class Constants
     public static string SKIP_ON = "arrow_black";
     public static string SKIP_OFF = "arrow_2";
     public static float SKIP_WAITING_SECONDS = 0.02f;
+
+    // saveload panel
+    public static int DEFAULT_START_INDEX = 0;
+    public static int SLOTS_PER_PAGE = 8;
+    public static int TOTAL_SLOTS = 40;
+    public static string COLON = ": ";
+    public static string SAVE_GAME = "save_game";
+    public static string LOAD_GAME = "load_game";
+    public static string EMPTY_SLOT = "empty_game";
+
+
 }

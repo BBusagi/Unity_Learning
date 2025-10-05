@@ -38,6 +38,8 @@ public class VNManager : MonoBehaviour
     [SerializeField] private GameObject buttonButton;
     [SerializeField] private Button autoButton;
     [SerializeField] private Button skipButton;
+    [SerializeField] private Button saveButton;
+    [SerializeField] private Button loadButton;
 
     private readonly string storyPath = Constants.STORY_PATH;
     private readonly string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
@@ -64,6 +66,18 @@ public class VNManager : MonoBehaviour
     {
         autoButton.onClick.AddListener(OnAutoButtonClick);
         skipButton.onClick.AddListener(OnSkipButtonClick);
+        saveButton.onClick.AddListener(OnSaveButtonClick);
+        loadButton.onClick.AddListener(OnLoadButtonClick);
+    }
+
+    private void OnLoadButtonClick()
+    {
+        SaveLoadManager.Instance.ShowSaveLoadUI(false);
+    }
+
+    private void OnSaveButtonClick()
+    {
+        SaveLoadManager.Instance.ShowSaveLoadUI(true);
     }
 
     private void OnSkipButtonClick()

@@ -18,4 +18,6 @@
 
 ## ref
 [在线TTS](https://www.ttsonline.cn/)
+[如何提问 才能让别人愿意帮助你？](https://zhuanlan.zhihu.com/p/717889135)
+[How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html)
 
