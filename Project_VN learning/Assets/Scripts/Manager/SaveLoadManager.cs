@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    [SerializeField] private GameObject saveLoadPanel;
-    [SerializeField]
-    private TextMeshProUGUI titlePanel
-    ;
+    public static SaveLoadManager Instance { get; private set; }
+    public GameObject saveLoadPanel;
+
+    [SerializeField] private TextMeshProUGUI titlePanel;
     [SerializeField] private Button[] saveLoadButtons;
     [SerializeField] private Button prevPageButton;
     [SerializeField] private Button nextPageButton;
@@ -21,7 +21,8 @@ public class SaveLoadManager : MonoBehaviour
     private readonly int slotsPerPage = Constants.SLOTS_PER_PAGE;
     private readonly int totalSlots = Constants.TOTAL_SLOTS;
 
-    public static SaveLoadManager Instance { get; private set; }
+    
+    
     void Awake()
     {
         if (Instance == null)

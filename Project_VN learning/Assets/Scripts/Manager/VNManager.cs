@@ -17,7 +17,11 @@ using UnityEditor.Experimental.GraphView;
 /// </summary>
 public class VNManager : MonoBehaviour
 {
+    public static VNManager Instance { get; private set; }
     public TypeWriterEffect typeWriterEffect;
+    public GameObject gamePanel;
+
+    [SerializeField] private GameObject dialogueBox;
 
     [SerializeField] private TextMeshProUGUI speakerName;
     [SerializeField] private TextMeshProUGUI speakerContent;
@@ -35,11 +39,16 @@ public class VNManager : MonoBehaviour
     [SerializeField] private Button choiceButton2;
 
     // button panel
-    [SerializeField] private GameObject buttonButton;
+    [SerializeField] private GameObject buttomButton;
     [SerializeField] private Button autoButton;
     [SerializeField] private Button skipButton;
     [SerializeField] private Button saveButton;
     [SerializeField] private Button loadButton;
+    [SerializeField] private Button historyButton;
+    [SerializeField] private Button settingsButton;
+    [SerializeField] private Button homeButton;
+    [SerializeField] private Button hideButton;
+
 
     private readonly string storyPath = Constants.STORY_PATH;
     private readonly string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
@@ -55,10 +64,52 @@ public class VNManager : MonoBehaviour
 
 
 
+    
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+    }
 
     void Start()
     {
         ButtonAddListener();
+        gamePanel.SetActive(false);
+        HomeMenuManager.Instance.HomeMenuPanel.SetActive(true);
+    }
+    
+    void Update()
+    {
+        // 用户输入 鼠标
+        if (gamePanel.activeSelf && Input.GetMouseButtonDown(0))
+        {
+            if (!dialogueBox.activeSelf)
+            {
+                OpenUI();
+            }
+            else if (!IsHittingButtons()) 
+            {
+                if (!SaveLoadManager.Instance.saveLoadPanel.activeSelf)
+                { 
+                    DisplayNextLine();
+                }
+            }
+        }
+    }
+
+    private void OpenUI()
+    {
+        UISwitch(true);
+    }
+
+    public void StartGame()
+    {
         InitializeAndLoadStory(defaultStoryFile);
     }
 
@@ -68,6 +119,20 @@ public class VNManager : MonoBehaviour
         skipButton.onClick.AddListener(OnSkipButtonClick);
         saveButton.onClick.AddListener(OnSaveButtonClick);
         loadButton.onClick.AddListener(OnLoadButtonClick);
+        //
+        //
+        homeButton.onClick.AddListener(OnHomeButtonClick);
+        hideButton.onClick.AddListener(OnHideButtonClick);
+    }
+    private void OnHomeButtonClick()
+    {
+        gamePanel.SetActive(false);
+        HomeMenuManager.Instance.HomeMenuPanel.SetActive(true);
+    }
+
+    private void OnHideButtonClick()
+    {
+        UISwitch(false);
     }
 
     private void OnLoadButtonClick()
@@ -113,14 +178,7 @@ public class VNManager : MonoBehaviour
         return currentLine < maxRearchedLine;
     }
 
-    void Update()
-    {
-        // 用户输入 鼠标
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!IsHittingButtons()) DisplayNextLine();
-        }
-    }
+ 
 
     private void InitializeAndLoadStory(string fileName)
     {
@@ -385,10 +443,16 @@ public class VNManager : MonoBehaviour
 
     #region Utility
 
+    private void UISwitch(bool isOpen)
+    {
+        dialogueBox.SetActive(isOpen);
+        buttomButton.SetActive(isOpen);
+    }
+
     private bool IsHittingButtons()
     {
         return RectTransformUtility.RectangleContainsScreenPoint(
-            buttonButton.GetComponent<RectTransform>(),
+            buttomButton.GetComponent<RectTransform>(),
             Input.mousePosition,
             null
         );
