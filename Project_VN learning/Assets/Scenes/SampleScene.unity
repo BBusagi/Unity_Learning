@@ -2587,14 +2587,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79c5eae20c803741a65a71b7e62b308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeWriterEffect: {fileID: 1649545147}
   gamePanel: {fileID: 855479640}
   dialogueBox: {fileID: 27656614}
+  screenShotter: {fileID: 0}
+  typeWriterEffect: {fileID: 1649545147}
   speakerName: {fileID: 1922190217}
-  vocalAudio: {fileID: 1809218596}
+  backgroundImage: {fileID: 2074010809}
   backgroundAudio: {fileID: 389453214}
   avatarImage: {fileID: 497713656}
-  backgroundImage: {fileID: 2074010809}
+  vocalAudio: {fileID: 1809218596}
   character1Image: {fileID: 91143424}
   character2Image: {fileID: 1676327996}
   choicePanel: {fileID: 1187139376}
@@ -2625,6 +2626,7 @@ Transform:
   - {fileID: 1649545148}
   - {fileID: 1870704380}
   - {fileID: 1109408736}
+  - {fileID: 1017328440}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787454965
@@ -3263,6 +3265,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2168614710126983889, guid: e08a0176fd7e6074a8339ddbad14d51f, type: 3}
   m_PrefabInstance: {fileID: 5822333961135523273}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017328439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017328440}
+  - component: {fileID: 1017328441}
+  m_Layer: 0
+  m_Name: Screenshotter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017328440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017328439}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 709071986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017328441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017328439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6e8a689cac8d84a846dd7c92196841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024208822
 GameObject:
   m_ObjectHideFlags: 0

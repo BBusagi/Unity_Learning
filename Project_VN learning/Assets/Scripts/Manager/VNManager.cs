@@ -7,9 +7,9 @@ using Unity.Loading;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+using System.IO;
+using System.Xml;
+using Newtonsoft.Json;
 
 
 /// <summary>
@@ -18,19 +18,18 @@ using UnityEditor.Experimental.GraphView;
 public class VNManager : MonoBehaviour
 {
     public static VNManager Instance { get; private set; }
-    public TypeWriterEffect typeWriterEffect;
+
+    #region Variables
     public GameObject gamePanel;
-
-    [SerializeField] private GameObject dialogueBox;
-
+    public GameObject dialogueBox;
+    public ScreenShotter screenShotter;
+    public TypeWriterEffect typeWriterEffect;
     [SerializeField] private TextMeshProUGUI speakerName;
-    //[SerializeField] private TextMeshProUGUI speakerContent;  ???
 
-    [SerializeField] private AudioSource vocalAudio;
-    [SerializeField] private AudioSource backgroundAudio;
-
-    [SerializeField] private Image avatarImage;
     [SerializeField] private Image backgroundImage;
+    [SerializeField] private AudioSource backgroundAudio;
+    [SerializeField] private Image avatarImage;
+    [SerializeField] private AudioSource vocalAudio;
     [SerializeField] private Image character1Image;
     [SerializeField] private Image character2Image;
 
@@ -49,10 +48,14 @@ public class VNManager : MonoBehaviour
     [SerializeField] private Button homeButton;
     [SerializeField] private Button hideButton;
 
-
     private readonly string storyPath = Constants.STORY_PATH;
     private readonly string defaultStoryFile = Constants.DEFAULT_STORY_FILE_NAME;
     private readonly string excelExtension = Constants.EXCEL_FILE_EXTENSION;
+
+    private string saveFolderPath;
+    private byte[] screenshotData;
+    private string currentSpeakingContent;
+
     private List<ExcelReader.ExcelData> storyData;
     private int currentLine;
     private string currentStoryFile;
@@ -63,9 +66,9 @@ public class VNManager : MonoBehaviour
     private int maxRearchedLine = 0;
     private Dictionary<string, int> globalMaxRearchedLineDic = new Dictionary<string, int>();
 
+    #endregion
 
-
-    
+    #region Lifecycle
     void Awake()
     {
         if (Instance == null)
@@ -80,11 +83,12 @@ public class VNManager : MonoBehaviour
 
     void Start()
     {
+        InitializeSaveFilePath();
         ButtonAddListener();
         gamePanel.SetActive(false);
         HomeMenuManager.Instance.HomeMenuPanel.SetActive(true);
     }
-    
+
     void Update()
     {
         // 用户输入 鼠标
@@ -97,24 +101,25 @@ public class VNManager : MonoBehaviour
             {
                 OpenUI();
             }
-            else if (!IsHittingButtons()) 
+            else if (!IsHittingButtons())
             {
                 if (!SaveLoadManager.Instance.saveLoadPanel.activeSelf)
-                { 
+                {
                     DisplayNextLine();
                 }
             }
         }
     }
+    #endregion
 
-    private void OpenUI()
+    #region Initialization
+    private void InitializeSaveFilePath()
     {
-        UISwitch(true);
-    }
-
-    public void StartGame()
-    {
-        InitializeAndLoadStory(defaultStoryFile);
+        saveFolderPath = Path.Combine(Application.persistentDataPath, Constants.SAVE_FILE_PATH);
+        if (!Directory.Exists(saveFolderPath))
+        {
+            Directory.CreateDirectory(saveFolderPath);
+        }
     }
 
     private void ButtonAddListener()
@@ -128,61 +133,11 @@ public class VNManager : MonoBehaviour
         homeButton.onClick.AddListener(OnHomeButtonClick);
         hideButton.onClick.AddListener(OnHideButtonClick);
     }
-    private void OnHomeButtonClick()
-    {
-        gamePanel.SetActive(false);
-        HomeMenuManager.Instance.HomeMenuPanel.SetActive(true);
-    }
 
-    private void OnHideButtonClick()
+    public void StartGame()
     {
-        UISwitch(false);
+        InitializeAndLoadStory(defaultStoryFile);
     }
-
-    private void OnLoadButtonClick()
-    {
-        SaveLoadManager.Instance.ShowSaveLoadUI(false);
-    }
-
-    private void OnSaveButtonClick()
-    {
-        SaveLoadManager.Instance.ShowSaveLoadUI(true);
-    }
-
-    private void OnSkipButtonClick()
-    {
-        if (!isSkip && CanSkip())
-        {
-            StartSkip();
-        }
-        else if (isSkip)
-        {
-            StopCoroutine(SkipToMaxReachedLine());
-            EndSkip();
-        }
-    }
-
-    private void EndSkip()
-    {
-        isSkip = false;
-        currentTypingSpeed = Constants.DEFAULT_TYPING_SPEED;
-        UpdateButtonImage(Constants.SKIP_OFF, skipButton);
-    }
-
-    private void StartSkip()
-    {
-        isSkip = true;
-        UpdateButtonImage(Constants.SKIP_ON, skipButton);
-        currentTypingSpeed = Constants.FAST_TYPING_SPEED;
-        StartCoroutine(SkipToMaxReachedLine());
-    }
-
-    private bool CanSkip()
-    {
-        return currentLine < maxRearchedLine;
-    }
-
- 
 
     private void InitializeAndLoadStory(string fileName)
     {
@@ -194,7 +149,7 @@ public class VNManager : MonoBehaviour
     private void Initialize()
     {
         currentLine = Constants.DEFAULT_START_LINE;
-        
+
         backgroundImage.gameObject.SetActive(false);
         backgroundAudio.gameObject.SetActive(false);
 
@@ -203,7 +158,7 @@ public class VNManager : MonoBehaviour
 
         character1Image.gameObject.SetActive(false);
         character2Image.gameObject.SetActive(false);
-        
+
         choicePanel.SetActive(false);
     }
 
@@ -226,9 +181,9 @@ public class VNManager : MonoBehaviour
             globalMaxRearchedLineDic[currentStoryFile] = maxRearchedLine;
         }
     }
+    #endregion
 
-
-
+    #region Display
     private void DisplayNextLine()
     {
         if (currentLine > maxRearchedLine)
@@ -263,25 +218,12 @@ public class VNManager : MonoBehaviour
             DisplayThisLine();
         }
     }
-    private void ShowChoice()
-    {
-        choiceButton1.onClick.RemoveAllListeners();
-        choiceButton2.onClick.RemoveAllListeners();
-        choicePanel.SetActive(true);
-
-
-        var data = storyData[currentLine];
-        choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = data.content; //第二列
-        choiceButton1.onClick.AddListener(() => InitializeAndLoadStory(data.avatarImageFile)); //第三列
-        choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = data.vocalAudioFile; //第四列
-        choiceButton2.onClick.AddListener(() => InitializeAndLoadStory(data.backgroundImageFile)); //第五列
-    }
-
     private void DisplayThisLine()
     {
         var data = storyData[currentLine];
         speakerName.text = data.speakerName;
-        typeWriterEffect.StartTyping(data.content, currentTypingSpeed);
+        currentSpeakingContent = data.content;
+        typeWriterEffect.StartTyping(currentSpeakingContent, currentTypingSpeed);
 
         //dialogue
         if (NotNullNorEmpty(data.avatarImageFile))
@@ -320,6 +262,51 @@ public class VNManager : MonoBehaviour
         currentLine++;
     }
 
+    #endregion
+
+    private void ShowChoice()
+    {
+        choiceButton1.onClick.RemoveAllListeners();
+        choiceButton2.onClick.RemoveAllListeners();
+        choicePanel.SetActive(true);
+
+
+        var data = storyData[currentLine];
+        choiceButton1.GetComponentInChildren<TextMeshProUGUI>().text = data.content; //第二列
+        choiceButton1.onClick.AddListener(() => InitializeAndLoadStory(data.avatarImageFile)); //第三列
+        choiceButton2.GetComponentInChildren<TextMeshProUGUI>().text = data.vocalAudioFile; //第四列
+        choiceButton2.onClick.AddListener(() => InitializeAndLoadStory(data.backgroundImageFile)); //第五列
+    }
+
+    #region Audios
+    private void PlayVocalAudio(string audioFile)
+    {
+        string audioPath = Constants.VOCAL_PATH + audioFile;
+        PlayAudio(audioPath, vocalAudio);
+    }
+    private void PlayBackgroundAudio(string audioFile)
+    {
+        string audioPath = Constants.MUSIC_PATH + audioFile;
+        PlayAudio(audioPath, backgroundAudio, true);
+    }
+    private void PlayAudio(string audioPath, AudioSource audioSource, bool isLoop = false)
+    {
+        AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
+        if (audioClip != null)
+        {
+            audioSource.clip = audioClip;
+            audioSource.gameObject.SetActive(true);
+            audioSource.Play();
+            audioSource.loop = isLoop;
+        }
+        else
+        {
+            Debug.LogError("Failed to load audio: " + audioPath);
+        }
+    }
+    #endregion
+
+    #region Images
     private void UpdateCharacterImage(string action, string imageFile, Image characterImage, string x)
     {
         if (action.StartsWith(Constants.charaterActionAppearAt)) //appearAt
@@ -360,21 +347,16 @@ public class VNManager : MonoBehaviour
         UpdateImage(imagePath, avatarImage);
     }
 
-    private void PlayVocalAudio(string audioFile)
-    {
-        string audioPath = Constants.VOCAL_PATH + audioFile;
-        PlayAudio(audioPath, vocalAudio);
-    }
-
     private void UpdateBackgroundImage(string imageFile)
     {
         string imagePath = Constants.BACKGROUND_PATH + imageFile;
         UpdateImage(imagePath, backgroundImage);
     }
-    private void PlayBackgroundAudio(string audioFile)
+
+    private void UpdateButtonImage(string imageFile, Button button)
     {
-        string audioPath = Constants.MUSIC_PATH + audioFile;
-        PlayAudio(audioPath, backgroundAudio, true);
+        string imagePath = Constants.BUTTON_PATH + imageFile;
+        UpdateImage(imagePath, button.image);
     }
 
     private void UpdateImage(string imagePath, Image image)
@@ -390,23 +372,16 @@ public class VNManager : MonoBehaviour
             Debug.LogError("Failed to load image: " + imagePath);
         }
     }
+    #endregion
 
-    private void PlayAudio(string audioPath, AudioSource audioSource, bool isLoop = false)
+    #region Buttons
+    private void OnHomeButtonClick()
     {
-        AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
-        if (audioClip != null)
-        {
-            audioSource.clip = audioClip;
-            audioSource.gameObject.SetActive(true);
-            audioSource.Play();
-            audioSource.loop = isLoop;
-        }
-        else
-        {
-            Debug.LogError("Failed to load audio: " + audioPath);
-        }
+        gamePanel.SetActive(false);
+        HomeMenuManager.Instance.HomeMenuPanel.SetActive(true);
     }
 
+    #region Auto
     private void OnAutoButtonClick()
     {
         isAutoPlay = !isAutoPlay;
@@ -419,12 +394,6 @@ public class VNManager : MonoBehaviour
         }
     }
 
-    private void UpdateButtonImage(string imageFile, Button button)
-    {
-        string imagePath = Constants.BUTTON_PATH + imageFile;
-        UpdateImage(imagePath, button.image);
-    }
-
     private IEnumerator StartAutoPlay()
     {
         while (isAutoPlay)
@@ -433,6 +402,29 @@ public class VNManager : MonoBehaviour
 
             yield return new WaitForSeconds(Constants.AUTO_WAITING_SECONDS);
         }
+    }
+    #endregion
+
+    #region Skip
+    private void OnSkipButtonClick()
+    {
+        if (!isSkip && CanSkip())
+        {
+            StartSkip();
+        }
+        else if (isSkip)
+        {
+            StopCoroutine(SkipToMaxReachedLine());
+            EndSkip();
+        }
+    }
+
+    private void StartSkip()
+    {
+        isSkip = true;
+        UpdateButtonImage(Constants.SKIP_ON, skipButton);
+        currentTypingSpeed = Constants.FAST_TYPING_SPEED;
+        StartCoroutine(SkipToMaxReachedLine());
     }
 
     private IEnumerator SkipToMaxReachedLine()
@@ -451,21 +443,86 @@ public class VNManager : MonoBehaviour
         }
     }
 
+    private void EndSkip()
+    {
+        isSkip = false;
+        currentTypingSpeed = Constants.DEFAULT_TYPING_SPEED;
+        UpdateButtonImage(Constants.SKIP_OFF, skipButton);
+    }
 
-    #region Utility
+    private bool CanSkip()
+    {
+        return currentLine < maxRearchedLine;
+    }
 
+    #endregion
+
+    #region Save
+    private void OnSaveButtonClick()
+    {
+        UISwitch(false);
+        Texture2D screenshot = screenShotter.CaptureScreenShot();
+        screenshotData = screenshot.EncodeToPNG();
+
+        //SaveLoadManager.Instance.ShowSaveLoadUI(true); //!!!
+        OpenUI();
+    }
+
+    private void SaveGame(int slotIndex)
+    {
+        var saveData = new SaveData
+        {
+            currentSpeakingContent = currentSpeakingContent,
+            screenshotData = screenshotData,
+        };
+
+        string savePath = Path.Combine(saveFolderPath + Constants.SAVE_FILE_EXTENSION);
+        string json = JsonConvert.SerializeObject(saveData, Newtonsoft.Json.Formatting.Indented);
+        File.WriteAllText(savePath, json);
+    }
+    public class SaveData
+    {
+        public string currentSpeakingContent;
+        public byte[] screenshotData;
+    }
+    #endregion
+
+    #region Load
+    private void OnLoadButtonClick()
+    {
+        //SaveLoadManager.Instance.ShowSaveLoadUI(LoadGame); //!!!
+    }
+    void LoadGame(int slotIndex)
+    { 
+
+    }
+    #endregion
+
+    #region Close
+    private void OpenUI()
+    {
+        UISwitch(true);
+    }
+    private void OnHideButtonClick()
+    {
+        UISwitch(false);
+    }
     private void UISwitch(bool isOpen)
     {
         dialogueBox.SetActive(isOpen);
         buttomButton.SetActive(isOpen);
     }
+    #endregion
 
+    #endregion
+
+    #region Utility
     private bool IsHittingButtons()
     {
         return RectTransformUtility.RectangleContainsScreenPoint(
             buttomButton.GetComponent<RectTransform>(),
             Input.mousePosition,
-            null
+            Camera.main
         );
     }
 

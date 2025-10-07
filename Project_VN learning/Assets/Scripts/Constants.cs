@@ -3,6 +3,7 @@
 /// </summary>
 public class Constants
 {
+
     public static float DEFAULT_WAITING_SECONDS = 1.5f;
 
     //打字机效果单字等待时间
@@ -15,6 +16,8 @@ public class Constants
     public static string STORY_PATH = "Assets/Resources/story/";
     public static string DEFAULT_STORY_FILE_NAME = "1";
     public static string EXCEL_FILE_EXTENSION = ".xlsx";
+    public static string SAVE_FILE_PATH = "saves";
+    public static string SAVE_FILE_EXTENSION = ".json";
 
     public static string BACKGROUND_PATH = "image/background/";
     public static string AVATAR_PATH = "image/avatar/";
