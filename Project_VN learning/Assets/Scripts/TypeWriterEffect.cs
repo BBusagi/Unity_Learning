@@ -26,8 +26,9 @@ public class TypeWriterEffect : MonoBehaviour
 
 
 
-    public void StartTyping(string text)
+    public void StartTyping(string text, float speed)
     {
+        typingSpeed = speed;
         if (typingCorouting != null)
         {
             StopCoroutine(typingCorouting);

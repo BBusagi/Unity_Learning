@@ -32,7 +32,7 @@ public class Constants
     //TODO: 将icon的配置单独设置
     public static string AUTO_ON = "play_1b";
     public static string AUTO_OFF = "play_1";
-    public static float AUTO_WAITING_SECONDS = 1.5f;
+    public static float AUTO_WAITING_SECONDS = 2.5f;
 
     public static string SKIP_ON = "arrow_black";
     public static string SKIP_OFF = "arrow_2";

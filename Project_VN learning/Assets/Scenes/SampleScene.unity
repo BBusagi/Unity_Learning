@@ -2591,7 +2591,6 @@ MonoBehaviour:
   gamePanel: {fileID: 855479640}
   dialogueBox: {fileID: 27656614}
   speakerName: {fileID: 1922190217}
-  speakerContent: {fileID: 144959569}
   vocalAudio: {fileID: 1809218596}
   backgroundAudio: {fileID: 389453214}
   avatarImage: {fileID: 497713656}

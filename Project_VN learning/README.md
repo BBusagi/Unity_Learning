@@ -3,6 +3,7 @@
 
 ## TODO
 + 对话框背景的比率问题
++ 只有一个speaker，点击之后人物vocal覆盖bgm
 
 ## Note
 + grid layout组件 用于排列UI

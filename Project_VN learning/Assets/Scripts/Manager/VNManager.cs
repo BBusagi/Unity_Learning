@@ -24,7 +24,7 @@ public class VNManager : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
 
     [SerializeField] private TextMeshProUGUI speakerName;
-    [SerializeField] private TextMeshProUGUI speakerContent;
+    //[SerializeField] private TextMeshProUGUI speakerContent;  ???
 
     [SerializeField] private AudioSource vocalAudio;
     [SerializeField] private AudioSource backgroundAudio;
@@ -56,6 +56,7 @@ public class VNManager : MonoBehaviour
     private List<ExcelReader.ExcelData> storyData;
     private int currentLine;
     private string currentStoryFile;
+    private float currentTypingSpeed = Constants.DEFAULT_TYPING_SPEED;
 
     private bool isAutoPlay = false;
     private bool isSkip = false;
@@ -87,7 +88,10 @@ public class VNManager : MonoBehaviour
     void Update()
     {
         // 用户输入 鼠标
-        if (gamePanel.activeSelf && Input.GetMouseButtonDown(0))
+        if (!HomeMenuManager.Instance.HomeMenuPanel.activeSelf &&
+            !SaveLoadManager.Instance.saveLoadPanel.activeSelf &&
+            gamePanel.activeSelf && Input.GetMouseButtonDown(0)
+            )
         {
             if (!dialogueBox.activeSelf)
             {
@@ -161,7 +165,7 @@ public class VNManager : MonoBehaviour
     private void EndSkip()
     {
         isSkip = false;
-        typeWriterEffect.TypingSpeed = Constants.DEFAULT_TYPING_SPEED;
+        currentTypingSpeed = Constants.DEFAULT_TYPING_SPEED;
         UpdateButtonImage(Constants.SKIP_OFF, skipButton);
     }
 
@@ -169,7 +173,7 @@ public class VNManager : MonoBehaviour
     {
         isSkip = true;
         UpdateButtonImage(Constants.SKIP_ON, skipButton);
-        typeWriterEffect.TypingSpeed = Constants.FAST_TYPING_SPEED;
+        currentTypingSpeed = Constants.FAST_TYPING_SPEED;
         StartCoroutine(SkipToMaxReachedLine());
     }
 
@@ -190,10 +194,16 @@ public class VNManager : MonoBehaviour
     private void Initialize()
     {
         currentLine = Constants.DEFAULT_START_LINE;
-        avatarImage.gameObject.SetActive(false);
+        
         backgroundImage.gameObject.SetActive(false);
+        backgroundAudio.gameObject.SetActive(false);
+
+        avatarImage.gameObject.SetActive(false);
+        vocalAudio.gameObject.SetActive(false);
+
         character1Image.gameObject.SetActive(false);
         character2Image.gameObject.SetActive(false);
+        
         choicePanel.SetActive(false);
     }
 
@@ -271,7 +281,7 @@ public class VNManager : MonoBehaviour
     {
         var data = storyData[currentLine];
         speakerName.text = data.speakerName;
-        typeWriterEffect.StartTyping(data.content);
+        typeWriterEffect.StartTyping(data.content, currentTypingSpeed);
 
         //dialogue
         if (NotNullNorEmpty(data.avatarImageFile))
@@ -294,7 +304,7 @@ public class VNManager : MonoBehaviour
         }
         if (NotNullNorEmpty(data.backgroundMusicFile))
         {
-            PlayVBackgroundAudio(data.backgroundMusicFile);
+            PlayBackgroundAudio(data.backgroundMusicFile);
         }
 
         // charaterAction
@@ -361,7 +371,7 @@ public class VNManager : MonoBehaviour
         string imagePath = Constants.BACKGROUND_PATH + imageFile;
         UpdateImage(imagePath, backgroundImage);
     }
-    private void PlayVBackgroundAudio(string audioFile)
+    private void PlayBackgroundAudio(string audioFile)
     {
         string audioPath = Constants.MUSIC_PATH + audioFile;
         PlayAudio(audioPath, backgroundAudio, true);
@@ -386,9 +396,10 @@ public class VNManager : MonoBehaviour
         AudioClip audioClip = Resources.Load<AudioClip>(audioPath);
         if (audioClip != null)
         {
-            backgroundAudio.clip = audioClip;
-            backgroundAudio.Play();
-            backgroundAudio.loop = isLoop;
+            audioSource.clip = audioClip;
+            audioSource.gameObject.SetActive(true);
+            audioSource.Play();
+            audioSource.loop = isLoop;
         }
         else
         {
