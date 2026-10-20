@@ -1,8 +1,18 @@
 # Unity_Learning
 
+Unity 引擎、插件和项目实践的学习仓库。
+
+## 学习专题
+
+- [专题目录](Topics/README.md)：Unity 学习主题与后续计划。
+- [UniRx](Topics/UniRx/README.md)：响应式编程笔记与练习脚本。
+- [UniTask](Topics/UniTask/README.md)：异步编程笔记与练习脚本。
+
+通用 C#、LINQ、.NET、算法和设计模式笔记见 [Learning_CS](https://github.com/BBusagi/Learning_CS)。
+
 ## TODO
 [【unity ebook】9 ways to optimize your game development](https://create.unity.com/nine-ways-to-optimize-game-development?utm_source=thirdparty&utm_medium=affiliate&utm_campaign=gaming_global_acquisition_2020-01-gmg-ebook2&utm_content=brackeys)
-[【Udemy】Lighting in Unity](https://www.udemy.com/course/lighting-in-unity-l/)  
+[【Udemy】Lighting in Unity](https://www.udemy.com/course/lighting-in-unity-l/)
 
 ## Project_SpaceShooter
 [GoogleDrive](https://drive.google.com/drive/folders/1pmB-Sg2tDb274kEB_Wd_TdBK56f7biw6?usp=sharing)
@@ -41,7 +51,7 @@
 #### GamePlay
 + livecycle - OnDrawGizmos
 + World.Space
-+ PlayerPrefs 
++ PlayerPrefs
 
 #### UI
 + Anchor Presets - ctrl alt
@@ -52,7 +62,7 @@
     + Baked
     + Mixed
 + Lighting Mode - Mixed
-    + Baked Indirect - 全部光线烘焙，动态物体只受间接光，不投影 
+    + Baked Indirect - 全部光线烘焙，动态物体只受间接光，不投影
     + Subtractive - 单光源静态烘焙 + 动态实时（更简化，低端设备推荐）
         > 第一个启用的 Directional Light 为 Main Light。
     + Shadowmask - 静态阴影烘焙，动态阴影实时（更真实）
@@ -76,10 +86,10 @@
 + Clipping planes
 
 #### Performance Optimization
-+ Texture optimisation 
++ Texture optimisation
 + Build - max texture size: max 1024
 + Maps - reduces texture size（256） if not much complex information
-    + Base Map 
+    + Base Map
     + Metallic Map
     + Normal Map
     + Occlusion Map
