@@ -1,14 +1,25 @@
 # Unity_Learning
 
-Unity 引擎、插件和项目实践的学习仓库。
+个人 Unity 学习仓库，按专题保存插件笔记与脚本，并记录 Unity 项目实践。
+
+## 目录
+
+| 模块 | 内容 | 入口 |
+| --- | --- | --- |
+| Topics | UniRx、UniTask 学习笔记、脚本、教学场景与资源 | [专题目录](Topics/README.md) |
+| Project_SpaceShooter | 射击项目实践、XR 交互与开发记录 | [项目目录](Project_SpaceShooter/) · [学习记录](#project_spaceshooter) |
+| Project_VN learning | 视觉小说练习、对话 UI、动画与文本处理 | [学习记录](Project_VN%20learning/README.md) · [项目目录](Project_VN%20learning/) |
 
 ## 学习专题
 
-- [专题目录](Topics/README.md)：Unity 学习主题与后续计划。
-- [UniRx](Topics/UniRx/README.md)：响应式编程笔记与练习脚本。
-- [UniTask](Topics/UniTask/README.md)：异步编程笔记与练习脚本。
+- [UniRx](Topics/UniRx/README.md)：响应式事件、资源释放与操作符练习。
+- [UniTask](Topics/UniTask/README.md)：异步操作、PlayerLoop、资源与场景加载练习。
 
-通用 C#、LINQ、.NET、算法和设计模式笔记见 [Learning_CS](https://github.com/BBusagi/Learning_CS)。
+专题主要用于阅读笔记和复用脚本，运行时按各专题 README 配置自己的 Unity 工程。项目目录则保留各自的实践内容与学习记录。
+
+## 相关仓库
+
+[Learning_CS](https://github.com/BBusagi/Learning_CS) 保存通用 C#、LINQ、.NET、其他语言、算法与设计模式笔记。UniRx 和 UniTask 的学习内容已从该仓库迁入本仓库。
 
 ## TODO
 [【unity ebook】9 ways to optimize your game development](https://create.unity.com/nine-ways-to-optimize-game-development?utm_source=thirdparty&utm_medium=affiliate&utm_campaign=gaming_global_acquisition_2020-01-gmg-ebook2&utm_content=brackeys)

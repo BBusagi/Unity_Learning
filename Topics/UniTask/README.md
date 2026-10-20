@@ -5,7 +5,7 @@ Unity 异步编程学习笔记与练习脚本。
 ## 内容
 
 - [学习笔记](Note.md)：从原 UniRx 笔记中归入本专题的 UniTask 记录。
-- [Scripts](Scripts/)：Chapter01、Chapter02 系列练习，以及 Runner、UniTaskExample、UniTaskTools。
+- [Scripts](Scripts/)：11 个练习脚本，包括 Chapter01、Chapter02 系列，以及 Runner、UniTaskExample、UniTaskTools。
 - [教学场景](Samples/Scenes/)：保留场景加载、UI 与异步操作的示例。
 - [示例资源](Samples/Resources/Test.txt)与[材质](Samples/Black.mat)：保留脚本和场景使用的小型资源。
 
@@ -24,3 +24,5 @@ Unity 异步编程学习资源
 + [Deep Dive async/await in Unity with UniTask(UniRx.Async)](https://www.youtube.com/watch?v=irbA4kmq4Wc)
 + [第4回 なぜUniTaskがいいのか？async/awaitとは【Unity使いこなし術】](https://www.youtube.com/watch?v=wCSmZSKG3ig)
 + [UniTaskの使い方2020（スライド＆動画）- Unity Learning Materials](https://learning.unity3d.jp/4615/)
+
+[返回专题目录](../README.md) · [返回仓库目录](../../README.md)
